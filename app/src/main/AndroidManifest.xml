@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.business.money_minder">
+
+    <application
+        android:name="com.business.money_minder.di.XpenseApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/xpense_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/xpense_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.XpenseWhiz">
+        <activity
+            android:name="com.business.money_minder.presentation.main.MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.XpenseWhiz">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            tools:node="remove">
+        </provider>
+
+        <meta-data android:name="io.sentry.dsn" android:value="https://eadba545e92946808f42508934c10e91@o1231793.ingest.sentry.io/6379506" />
+        <meta-data android:name="io.sentry.traces.sample-rate" android:value="1.0" />
+
+    </application>
+
+</manifest>
