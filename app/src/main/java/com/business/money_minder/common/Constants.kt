@@ -10,5 +10,12 @@ class Constants {
         const val EXPENSE_LIMIT_KEY = "expense_limit"
         const val LIMIT_DURATION = "limit_duration"
         const val PRIVACY_URL = ""
+
+        const val ADD_EXPENSES = "Add Expenses"
+        const val ADD_EXPENSES_DETAIL = "Keep track of your income and daily expenses"
+        const val INSIGHTS = "Insights"
+        const val INSIGHTS_DETAIL = "Detailed weekly and monthly charts based on your entries"
+        const val ANALYSIS = "Analysis"
+        const val ANALYSIS_DETAIL = "Make right decisions, Control your money flow and stay on top of your game"
     }
 }

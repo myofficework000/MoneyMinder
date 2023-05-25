@@ -1,7 +1,6 @@
 package com.business.money_minder.presentation.welcome_screen.components
 
 import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -14,32 +13,48 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.contentColorFor
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.airbnb.lottie.compose.LottieAnimation
+import com.airbnb.lottie.compose.LottieCompositionSpec
+import com.airbnb.lottie.compose.LottieConstants
+import com.airbnb.lottie.compose.animateLottieCompositionAsState
+import com.airbnb.lottie.compose.rememberLottieComposition
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.PagerState
 
 @Composable
 fun PagerScreen(page: OnBoardingPage) {
+    val composition by rememberLottieComposition(spec = LottieCompositionSpec.Asset(page.icon))
+    val progress by animateLottieCompositionAsState(composition = composition, iterations = LottieConstants.IterateForever)
+
     Column(
         modifier = Modifier
             .fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Image(
+        LottieAnimation(
+            composition = composition,
+            progress = progress,
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+                .fillMaxWidth(0.8f)
+                .fillMaxHeight(0.8f)
+        )
+        /*Image(
             painter = painterResource(id = page.icon),
             contentDescription = null,
             modifier = Modifier
                 .align(Alignment.CenterHorizontally)
                 .fillMaxWidth(0.5f)
                 .fillMaxHeight(0.6f)
-        )
+        )*/
         Text(
             text = page.title,
             textAlign = TextAlign.Center,

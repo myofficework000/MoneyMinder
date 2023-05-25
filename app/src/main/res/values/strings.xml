@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Money Minder</string>
+    <string name="add_expenses">Add Expenses</string>
 </resources>

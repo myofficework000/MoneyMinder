@@ -1,27 +1,30 @@
 package com.business.money_minder.presentation.welcome_screen.components
 
-import androidx.annotation.DrawableRes
 import com.business.money_minder.R
+import com.business.money_minder.common.Constants.Companion.ADD_EXPENSES
+import com.business.money_minder.common.Constants.Companion.ADD_EXPENSES_DETAIL
+import com.business.money_minder.common.Constants.Companion.ANALYSIS
+import com.business.money_minder.common.Constants.Companion.ANALYSIS_DETAIL
+import com.business.money_minder.common.Constants.Companion.INSIGHTS
+import com.business.money_minder.common.Constants.Companion.INSIGHTS_DETAIL
 
 sealed class OnBoardingPage(
-    @DrawableRes
-    val icon: Int,
+    val icon: String,
     val title: String,
     val description: String
 ) {
-    object FirstPage : OnBoardingPage(
-        R.drawable.entry, "Add entries", "Keep track of your income and expenses"
-    )
+    object FirstPage : OnBoardingPage("expenses.json", ADD_EXPENSES, ADD_EXPENSES_DETAIL)
 
-    object SecondPage : OnBoardingPage(
-        R.drawable.insight,
-        "Check insights",
-        "Detailed weekly and monthly charts based on your entries"
-    )
+    object SecondPage : OnBoardingPage("insights.json", INSIGHTS, INSIGHTS_DETAIL)
 
-    object ThirdPage : OnBoardingPage(
-        R.drawable.decision,
-        "Make right decisions",
-        "Control your money flow and stay on top of your game"
-    )
+    object ThirdPage : OnBoardingPage("chart.json", ANALYSIS, ANALYSIS_DETAIL)
+
+/*
+    object FirstPage : OnBoardingPage(R.drawable.entry, ADD_EXPENSES, ADD_EXPENSES_DETAIL)
+
+    object SecondPage : OnBoardingPage(R.drawable.insight, INSIGHTS, INSIGHTS_DETAIL)
+
+    object ThirdPage : OnBoardingPage(R.drawable.decision, ANALYSIS, ANALYSIS_DETAIL)
+*/
 }
+
