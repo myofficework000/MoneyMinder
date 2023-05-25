@@ -1,1 +1,1 @@
-# Xpense Whiz - Money tracker app with Compose.
+# Money minder - Money tracker app with Compose.
