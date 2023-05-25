@@ -7,7 +7,7 @@ import dagger.hilt.android.HiltAndroidApp
 import javax.inject.Inject
 
 @HiltAndroidApp
-class XpenseApplication: Application(), Configuration.Provider {
+class MoneyMinderApplication: Application(), Configuration.Provider {
 
     @Inject
     lateinit var factory: ResetWorkerFactory

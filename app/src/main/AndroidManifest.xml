@@ -4,7 +4,7 @@
     package="com.business.money_minder">
 
     <application
-        android:name="com.business.money_minder.di.XpenseApplication"
+        android:name=".di.MoneyMinderApplication"
         android:allowBackup="true"
         android:icon="@mipmap/xpense_launcher"
         android:label="@string/app_name"
@@ -14,8 +14,7 @@
         <activity
             android:name="com.business.money_minder.presentation.main.MainActivity"
             android:exported="true"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait"
+            android:screenOrientation="fullSensor"
             android:theme="@style/Theme.XpenseWhiz">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
