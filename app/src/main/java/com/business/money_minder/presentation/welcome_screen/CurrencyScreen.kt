@@ -33,6 +33,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
@@ -43,6 +44,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.business.money_minder.R
 import com.business.money_minder.domain.model.CurrencyModel
 import com.business.money_minder.presentation.navigation.Screen
 import com.business.money_minder.presentation.ui.theme.Manrope
@@ -88,9 +90,10 @@ fun CurrencyScreen(
 
                 Card(elevation = 1.dp) {
                     Text(
-                        text = "Set currency",
-                        style = MaterialTheme.typography.h4.copy(fontWeight = FontWeight.W700),
+                        text = stringResource(id = R.string.select_your_currency),
+                        style = MaterialTheme.typography.h6.copy(fontWeight = FontWeight.W700),
                         color = MaterialTheme.colors.onBackground,
+
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(
@@ -244,7 +247,7 @@ fun ContinueButton(
             contentPadding = PaddingValues(vertical = 12.dp)
         ) {
             Text(
-                text = "SET",
+                text = stringResource(id = R.string.confirm),
                 style = MaterialTheme.typography.button
             )
         }

@@ -71,10 +71,10 @@ fun DonutChart(
 
         val size = Size(sideSize.toFloat() - padding, sideSize.toFloat() - padding)
 
-        val donutFont = Typeface.createFromAsset(
+        /*val donutFont = Typeface.createFromAsset(
             LocalContext.current.assets,
             "manrope_medium.otf"
-        )
+        )*/
 
         Canvas(
             modifier = Modifier
@@ -123,7 +123,7 @@ fun DonutChart(
                             color = Color.Black.toArgb()
                             textSize = fontSize
                             textAlign = Paint.Align.CENTER
-                            typeface = Typeface.create(donutFont, Typeface.BOLD)
+                           // typeface = Typeface.create(donutFont, Typeface.BOLD)
                         }
                     )
                 }
