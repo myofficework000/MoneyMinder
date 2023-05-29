@@ -49,7 +49,7 @@ import androidx.work.WorkManager
 import com.business.money_minder.R
 import com.business.money_minder.presentation.setting_screen.SettingViewModel
 import com.business.money_minder.presentation.setting_screen.service.LimitResetWorker
-import com.business.money_minder.util.spacing
+import spacing
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.launch
@@ -92,7 +92,7 @@ fun LimitContent(
         verticalArrangement = Arrangement.SpaceEvenly,
         modifier = Modifier
             .fillMaxWidth()
-            .padding(MaterialTheme.spacing.medium)
+            .padding(spacing.medium)
     ) {
         Text(
             text = "SET LIMIT",
@@ -108,8 +108,8 @@ fun LimitContent(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(
-                    top = MaterialTheme.spacing.small,
-                    bottom = MaterialTheme.spacing.medium
+                    top = spacing.small,
+                    bottom = spacing.medium
                 ),
             maxLines = 1,
             singleLine = true,
@@ -136,7 +136,7 @@ fun LimitContent(
                     expandedState = !expandedState
                 }
                 .background(Color.LightGray)
-                .padding(MaterialTheme.spacing.medium)
+                .padding(spacing.medium)
                 .onGloballyPositioned {
                     size = it.size.toSize()
                 },
@@ -228,7 +228,7 @@ fun LimitContent(
             },
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(top = MaterialTheme.spacing.medium),
+                .padding(top = spacing.medium),
             colors = ButtonDefaults.buttonColors(
                 backgroundColor = MaterialTheme.colors.primary,
                 contentColor = contentColorFor(backgroundColor = MaterialTheme.colors.primary)

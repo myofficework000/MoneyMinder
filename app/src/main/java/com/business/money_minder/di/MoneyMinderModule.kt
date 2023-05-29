@@ -17,7 +17,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object XpenseModule {
+object MoneyMinderModule {
 
     @Provides
     @Singleton

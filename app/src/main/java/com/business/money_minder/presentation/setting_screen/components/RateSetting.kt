@@ -24,7 +24,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.business.money_minder.R
-import com.business.money_minder.util.spacing
+import spacing
 
 @Composable
 fun RateSetting() {
@@ -41,8 +41,8 @@ fun RateSetting() {
         modifier = Modifier
             .fillMaxSize()
             .padding(
-                horizontal = MaterialTheme.spacing.medium,
-                vertical = MaterialTheme.spacing.small
+                horizontal = spacing.medium,
+                vertical = spacing.small
             ),
         colors = ButtonDefaults.buttonColors(
             backgroundColor = Color.DarkGray.copy(alpha = 0.1f),
@@ -50,7 +50,7 @@ fun RateSetting() {
         ),
         shape = RoundedCornerShape(12.dp),
         contentPadding = PaddingValues(
-            horizontal = MaterialTheme.spacing.medium,
+            horizontal = spacing.medium,
             vertical = 20.dp
         )
     ) {

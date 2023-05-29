@@ -24,7 +24,7 @@ import com.business.money_minder.presentation.home_screen.TransactionType
 import com.business.money_minder.presentation.insight_screen.InsightViewModel
 import com.business.money_minder.presentation.ui.theme.GreenAlpha700
 import com.business.money_minder.presentation.ui.theme.Red500
-import com.business.money_minder.util.spacing
+import spacing
 
 @Composable
 fun InsightTabBar(
@@ -40,8 +40,8 @@ fun InsightTabBar(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(
-                    start = MaterialTheme.spacing.medium,
-                    end = MaterialTheme.spacing.medium
+                    start = spacing.medium,
+                    end = spacing.medium
                 ),
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically
@@ -92,7 +92,7 @@ fun InsightBar(
     TextButton(
         onClick = onTabClick,
         modifier = modifier
-            .padding(vertical = MaterialTheme.spacing.extraSmall),
+            .padding(vertical = spacing.extraSmall),
         shape = RoundedCornerShape(cornerRadius),
         colors = ButtonDefaults.outlinedButtonColors(
             backgroundColor = backgroundColor,
@@ -105,8 +105,8 @@ fun InsightBar(
             style = MaterialTheme.typography.subtitle2,
             modifier = Modifier
                 .padding(
-                    horizontal = MaterialTheme.spacing.small,
-                    vertical = MaterialTheme.spacing.extraSmall
+                    horizontal = spacing.small,
+                    vertical = spacing.extraSmall
                 )
                 .align(Alignment.CenterVertically)
         )

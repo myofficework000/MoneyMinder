@@ -48,7 +48,7 @@ import com.business.money_minder.R
 import com.business.money_minder.domain.model.CurrencyModel
 import com.business.money_minder.presentation.navigation.Screen
 import com.business.money_minder.presentation.ui.theme.Manrope
-import com.business.money_minder.util.spacing
+import spacing
 import kotlinx.coroutines.launch
 
 @ExperimentalMaterialApi
@@ -97,9 +97,9 @@ fun CurrencyScreen(
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(
-                                start = MaterialTheme.spacing.medium,
-                                end = MaterialTheme.spacing.medium,
-                                top = MaterialTheme.spacing.small
+                                start = spacing.medium,
+                                end = spacing.medium,
+                                top = spacing.small
                             ),
                         textAlign = TextAlign.Start
                     )
@@ -116,9 +116,9 @@ fun CurrencyScreen(
                                     verticalAlignment = Alignment.CenterVertically,
                                     modifier = Modifier
                                         .padding(
-                                            start = MaterialTheme.spacing.medium,
-                                            end = MaterialTheme.spacing.medium,
-                                            top = MaterialTheme.spacing.medium
+                                            start = spacing.medium,
+                                            end = spacing.medium,
+                                            top = spacing.medium
                                         )
                                 ) {
                                     Text(
@@ -147,8 +147,8 @@ fun CurrencyScreen(
                                     }
                                     .fillMaxWidth()
                                     .padding(
-                                        horizontal = MaterialTheme.spacing.medium,
-                                        vertical = MaterialTheme.spacing.small
+                                        horizontal = spacing.medium,
+                                        vertical = spacing.small
                                     )
                             ) {
                                 TextButton(
@@ -222,8 +222,8 @@ fun ContinueButton(
         modifier = Modifier
             .fillMaxWidth()
             .padding(
-                horizontal = MaterialTheme.spacing.medium,
-                vertical = MaterialTheme.spacing.small
+                horizontal = spacing.medium,
+                vertical = spacing.small
             )
     ) {
         Button(

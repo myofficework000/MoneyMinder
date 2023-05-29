@@ -40,7 +40,7 @@ import com.business.money_minder.presentation.setting_screen.components.LimitSet
 import com.business.money_minder.presentation.setting_screen.components.RateSetting
 import com.business.money_minder.presentation.setting_screen.components.ReminderSetting
 import com.business.money_minder.presentation.setting_screen.components.VersionSetting
-import com.business.money_minder.util.spacing
+import spacing
 
 @ExperimentalMaterialApi
 @ExperimentalUnitApi
@@ -93,8 +93,8 @@ fun SettingScreen(
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(
-                                horizontal = MaterialTheme.spacing.medium,
-                                vertical = MaterialTheme.spacing.small
+                                horizontal = spacing.medium,
+                                vertical = spacing.small
                             ),
                         textAlign = TextAlign.Start
                     )
@@ -123,8 +123,8 @@ fun SettingScreen(
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .padding(
-                                    horizontal = MaterialTheme.spacing.medium,
-                                    vertical = MaterialTheme.spacing.medium
+                                    horizontal = spacing.medium,
+                                    vertical = spacing.medium
                                 ),
                             letterSpacing = TextUnit(0.2f, TextUnitType.Sp),
                             textAlign = TextAlign.Start

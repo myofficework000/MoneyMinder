@@ -88,9 +88,9 @@ fun HomeScreen(
                     modifier = Modifier
                         .background(MaterialTheme.colors.background),
                     contentPadding = PaddingValues(
-                        start = MaterialTheme.spacing.medium,
-                        top = MaterialTheme.spacing.small,
-                        end = MaterialTheme.spacing.medium
+                        start = spacing.medium,
+                        top = spacing.small,
+                        end = spacing.medium
                     )
                 ) {
                     itemsIndexed(dailyTransactions) { pos, dailyTransaction ->
@@ -122,9 +122,9 @@ fun HomeScreen(
                     modifier = Modifier
                         .background(MaterialTheme.colors.background),
                     contentPadding = PaddingValues(
-                        start = MaterialTheme.spacing.medium,
-                        top = MaterialTheme.spacing.small,
-                        end = MaterialTheme.spacing.medium
+                        start = spacing.medium,
+                        top = spacing.small,
+                        end = spacing.medium
                     )
                 ) {
                     monthlyTransactions.forEach { (date, monthlyTransaction) ->
@@ -134,8 +134,8 @@ fun HomeScreen(
                                 verticalAlignment = Alignment.CenterVertically,
                                 modifier = Modifier
                                     .padding(
-                                        horizontal = MaterialTheme.spacing.medium,
-                                        vertical = MaterialTheme.spacing.small
+                                        horizontal = spacing.medium,
+                                        vertical = spacing.small
                                     ),
                             ) {
                                 Text(

@@ -40,9 +40,9 @@ fun AccountScreen(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(
-                            start = MaterialTheme.spacing.medium,
-                            end = MaterialTheme.spacing.medium,
-                            top = MaterialTheme.spacing.small
+                            start = spacing.medium,
+                            end = spacing.medium,
+                            top = spacing.small
                         ),
                     textAlign = TextAlign.Start
                 )

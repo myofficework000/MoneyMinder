@@ -43,7 +43,7 @@ import com.business.money_minder.presentation.home_screen.components.ListPlaceho
 import com.business.money_minder.presentation.insight_screen.components.DonutChart
 import com.business.money_minder.presentation.insight_screen.components.InsightItem
 import com.business.money_minder.presentation.insight_screen.components.InsightTabBar
-import com.business.money_minder.util.spacing
+import spacing
 
 @ExperimentalFoundationApi
 @ExperimentalUnitApi
@@ -93,9 +93,9 @@ fun InsightScreen(insightViewModel: InsightViewModel = hiltViewModel()) {
     Surface(
         color = MaterialTheme.colors.background,
         modifier = Modifier.padding(
-            start = MaterialTheme.spacing.medium,
-            end = MaterialTheme.spacing.medium,
-            top = MaterialTheme.spacing.small
+            start = spacing.medium,
+            end = spacing.medium,
+            top = spacing.small
         )
     ) {
         Column(
@@ -108,7 +108,7 @@ fun InsightScreen(insightViewModel: InsightViewModel = hiltViewModel()) {
                     .clickable {
                         expandedState = !expandedState
                     }
-                    .padding(MaterialTheme.spacing.medium),
+                    .padding(spacing.medium),
                 horizontalArrangement = Arrangement.Center,
                 verticalAlignment = Alignment.CenterVertically
             ) {

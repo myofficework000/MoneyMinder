@@ -135,9 +135,9 @@ fun TransactionScreen(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(
-                            start = MaterialTheme.spacing.medium,
-                            end = MaterialTheme.spacing.medium,
-                            top = MaterialTheme.spacing.small
+                            start = spacing.medium,
+                            end = spacing.medium,
+                            top = spacing.small
                         ),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
@@ -231,10 +231,10 @@ fun TransactionScreen(
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(
-                                start = MaterialTheme.spacing.medium,
-                                top = MaterialTheme.spacing.small,
-                                end = MaterialTheme.spacing.medium,
-                                bottom = MaterialTheme.spacing.medium
+                                start = spacing.medium,
+                                top = spacing.small,
+                                end = spacing.medium,
+                                bottom = spacing.medium
                             ),
                         maxLines = 1,
                         singleLine = true,
@@ -262,8 +262,8 @@ fun TransactionScreen(
                         color = MaterialTheme.colors.onSurface,
                         modifier = Modifier
                             .padding(
-                                horizontal = MaterialTheme.spacing.medium,
-                                vertical = MaterialTheme.spacing.small
+                                horizontal = spacing.medium,
+                                vertical = spacing.small
                             )
                             .align(Alignment.Start)
                     )
@@ -271,7 +271,7 @@ fun TransactionScreen(
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(
-                                horizontal = MaterialTheme.spacing.medium
+                                horizontal = spacing.medium
                             )
                     )
 
@@ -280,8 +280,8 @@ fun TransactionScreen(
                         verticalAlignment = Alignment.CenterVertically,
                         modifier = Modifier
                             .padding(
-                                horizontal = MaterialTheme.spacing.medium,
-                                vertical = MaterialTheme.spacing.small
+                                horizontal = spacing.medium,
+                                vertical = spacing.small
                             )
                             .align(Alignment.Start)
                     ) {
@@ -302,14 +302,14 @@ fun TransactionScreen(
                         modifier = Modifier
                             .align(Alignment.Start)
                             .padding(
-                                start = MaterialTheme.spacing.medium,
-                                top = MaterialTheme.spacing.small
+                                start = spacing.medium,
+                                top = spacing.small
                             ),
                         colors = ButtonDefaults.textButtonColors(Amber500.copy(alpha = 0.8f)),
                         shape = RoundedCornerShape(12.dp),
                         contentPadding = PaddingValues(
-                            horizontal = MaterialTheme.spacing.medium,
-                            vertical = MaterialTheme.spacing.small
+                            horizontal = spacing.medium,
+                            vertical = spacing.small
                         ),
                         elevation = ButtonDefaults.elevation(
                             defaultElevation = 0.dp,
@@ -333,13 +333,13 @@ fun TransactionScreen(
                     }
                     if (limitKey) {
                         if (limitInfoWarning is HomeViewModel.UIEvent.Alert) {
-                            Spacer(modifier = Modifier.height(MaterialTheme.spacing.small))
+                            Spacer(modifier = Modifier.height(spacing.small))
                             Row(
                                 verticalAlignment = Alignment.CenterVertically,
                                 horizontalArrangement = Arrangement.spacedBy(4.dp),
                                 modifier = Modifier
                                     .padding(
-                                        horizontal = MaterialTheme.spacing.medium
+                                        horizontal = spacing.medium
                                     )
                                     .align(Alignment.Start)
                             ) {
@@ -358,7 +358,7 @@ fun TransactionScreen(
                         }
                     }
 
-                    Spacer(modifier = Modifier.height(MaterialTheme.spacing.medium))
+                    Spacer(modifier = Modifier.height(spacing.medium))
 
                     Text(
                         text = "Set category",
@@ -368,16 +368,16 @@ fun TransactionScreen(
                         modifier = Modifier
                             .align(Alignment.Start)
                             .padding(
-                                horizontal = MaterialTheme.spacing.medium,
-                                vertical = MaterialTheme.spacing.small
+                                horizontal = spacing.medium,
+                                vertical = spacing.small
                             )
                     )
-                    Spacer(modifier = Modifier.height(MaterialTheme.spacing.extraSmall))
+                    Spacer(modifier = Modifier.height(spacing.extraSmall))
                     Divider(
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(
-                                horizontal = MaterialTheme.spacing.medium
+                                horizontal = spacing.medium
                             )
                     )
 

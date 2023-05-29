@@ -14,7 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import com.business.money_minder.R
-import com.business.money_minder.util.spacing
+import spacing
 
 @Composable
 fun ListPlaceholder(
@@ -25,9 +25,9 @@ fun ListPlaceholder(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
         modifier = Modifier.padding(
-            start = MaterialTheme.spacing.medium,
-            top = MaterialTheme.spacing.medium,
-            end = MaterialTheme.spacing.medium
+            start = spacing.medium,
+            top = spacing.medium,
+            end = spacing.medium
         ).fillMaxSize()
     ) {
         Icon(

@@ -35,7 +35,7 @@ import com.business.money_minder.presentation.home_screen.HomeViewModel
 import com.business.money_minder.presentation.home_screen.amountFormat
 import com.business.money_minder.presentation.ui.theme.GreenAlpha700
 import com.business.money_minder.presentation.ui.theme.Red500
-import com.business.money_minder.util.spacing
+import spacing
 
 @ExperimentalMaterialApi
 @ExperimentalUnitApi
@@ -48,8 +48,8 @@ fun TransactionItem(
     val category = getCategory(transaction.category)
     val currencyCode by homeViewModel.selectedCurrencyCode.collectAsState()
 
-    val small = MaterialTheme.spacing.small
-    val medium = MaterialTheme.spacing.medium
+    val small = spacing.small
+    val medium = spacing.medium
 
     Card(
         onClick = {
@@ -68,8 +68,8 @@ fun TransactionItem(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(
-                    horizontal = MaterialTheme.spacing.medium,
-                    vertical = MaterialTheme.spacing.small
+                    horizontal = spacing.medium,
+                    vertical = spacing.small
                 )
         ) {
             Row(
@@ -114,7 +114,7 @@ fun TransactionItem(
 
             }
 
-            Spacer(modifier = Modifier.height(MaterialTheme.spacing.medium))
+            Spacer(modifier = Modifier.height(spacing.medium))
 
             Row(
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
@@ -143,7 +143,7 @@ fun TransactionItem(
                             overflow = TextOverflow.Ellipsis
                         )
 
-                        Spacer(modifier = Modifier.height(MaterialTheme.spacing.extraSmall))
+                        Spacer(modifier = Modifier.height(spacing.extraSmall))
                     }
 
                     Text(

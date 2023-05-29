@@ -39,7 +39,7 @@ fun AccountDetailScreen(accountName: String?, accountViewModel: AccountViewModel
     Surface(
         color = MaterialTheme.colors.background,
         modifier = Modifier.padding(
-            top = MaterialTheme.spacing.small
+            top = spacing.small
         )
     ) {
         transactions.ifEmpty {
@@ -48,9 +48,9 @@ fun AccountDetailScreen(accountName: String?, accountViewModel: AccountViewModel
 
         LazyColumn(
             contentPadding = PaddingValues(
-                start = MaterialTheme.spacing.medium,
-                top = MaterialTheme.spacing.small,
-                end = MaterialTheme.spacing.medium
+                start = spacing.medium,
+                top = spacing.small,
+                end = spacing.medium
             )
         ) {
             item {
@@ -74,7 +74,7 @@ fun AccountDetailScreen(accountName: String?, accountViewModel: AccountViewModel
                         verticalAlignment = Alignment.CenterVertically,
                         modifier = Modifier
                             .padding(
-                                vertical = MaterialTheme.spacing.small
+                                vertical = spacing.small
                             ),
                     ) {
                         Text(

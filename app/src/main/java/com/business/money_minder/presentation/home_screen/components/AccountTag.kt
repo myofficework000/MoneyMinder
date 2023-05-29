@@ -39,8 +39,8 @@ fun AccountTag(account: Account, homeViewModel: HomeViewModel = hiltViewModel())
         },
         shape = RoundedCornerShape(12.dp),
         contentPadding = PaddingValues(
-            horizontal = MaterialTheme.spacing.medium,
-            vertical = MaterialTheme.spacing.small
+            horizontal = spacing.medium,
+            vertical = spacing.small
         ),
         colors = ButtonDefaults.buttonColors(
             backgroundColor = if (isSelected)
@@ -58,7 +58,7 @@ fun AccountTag(account: Account, homeViewModel: HomeViewModel = hiltViewModel())
             ),
             contentDescription = account.title,
         )
-        Spacer(modifier = Modifier.width(MaterialTheme.spacing.small))
+        Spacer(modifier = Modifier.width(spacing.small))
         Text(
             text = account.title,
             style = MaterialTheme.typography.subtitle2,

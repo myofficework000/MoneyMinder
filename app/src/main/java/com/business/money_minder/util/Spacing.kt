@@ -1,6 +1,5 @@
 package com.business.money_minder.util
 
-import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.ReadOnlyComposable
@@ -56,7 +55,7 @@ data class ExpandedSpacing(
 
 val LocalSpacing = compositionLocalOf { Spacing() }
 
-val MaterialTheme.spacing: Spacing
+val spacing: Spacing
     @Composable
     @ReadOnlyComposable
     get() = LocalSpacing.current

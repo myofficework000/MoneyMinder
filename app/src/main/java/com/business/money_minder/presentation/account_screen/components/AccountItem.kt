@@ -43,9 +43,9 @@ fun AccountItem(account: Account, currency: String, onItemClick: (String) -> Uni
         modifier = Modifier
             .fillMaxWidth()
             .padding(
-                top = MaterialTheme.spacing.medium,
-                start = MaterialTheme.spacing.medium,
-                end = MaterialTheme.spacing.medium
+                top = spacing.medium,
+                start = spacing.medium,
+                end = spacing.medium
             )
     ) {
         Column(
@@ -53,7 +53,7 @@ fun AccountItem(account: Account, currency: String, onItemClick: (String) -> Uni
             modifier = Modifier
                 .fillMaxSize()
                 .padding(
-                    top = MaterialTheme.spacing.small
+                    top = spacing.small
                 )
         ) {
             Text(
@@ -61,7 +61,7 @@ fun AccountItem(account: Account, currency: String, onItemClick: (String) -> Uni
                 style = MaterialTheme.typography.subtitle2.copy(fontWeight = FontWeight.Normal),
                 color = MaterialTheme.colors.onSurface,
                 modifier = Modifier.padding(
-                    start = MaterialTheme.spacing.medium
+                    start = spacing.medium
                 )
             )
 
@@ -86,7 +86,7 @@ fun AccountItem(account: Account, currency: String, onItemClick: (String) -> Uni
                 ) {
                     append(account.amount.toString().amountFormat())
                 }
-            }, modifier = Modifier.padding(start = MaterialTheme.spacing.medium))
+            }, modifier = Modifier.padding(start = spacing.medium))
 
             val color = when (account.account) {
                 AccountType.CASH.title -> AccountType.CASH.color
@@ -104,7 +104,7 @@ fun AccountItem(account: Account, currency: String, onItemClick: (String) -> Uni
                         horizontalArrangement = Arrangement.Center,
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(vertical = MaterialTheme.spacing.small)
+                            .padding(vertical = spacing.small)
                     ) {
                         Text(
                             text = account.account,
@@ -116,7 +116,7 @@ fun AccountItem(account: Account, currency: String, onItemClick: (String) -> Uni
                         horizontalArrangement = Arrangement.SpaceBetween,
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(horizontal = MaterialTheme.spacing.medium)
+                            .padding(horizontal = spacing.medium)
                     ) {
                         Text(text = buildAnnotatedString {
                             withStyle(
@@ -169,7 +169,7 @@ fun AccountItem(account: Account, currency: String, onItemClick: (String) -> Uni
                         horizontalArrangement = Arrangement.SpaceBetween,
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(horizontal = MaterialTheme.spacing.medium)
+                            .padding(horizontal = spacing.medium)
                     ) {
                         Text(
                             text = "INCOME",

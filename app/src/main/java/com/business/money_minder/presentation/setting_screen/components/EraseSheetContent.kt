@@ -22,7 +22,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.business.money_minder.presentation.setting_screen.SettingViewModel
 import com.business.money_minder.presentation.ui.theme.Red500
-import com.business.money_minder.util.spacing
+import spacing
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
@@ -35,10 +35,10 @@ fun EraseContent(
 ) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(MaterialTheme.spacing.medium),
+        verticalArrangement = Arrangement.spacedBy(spacing.medium),
         modifier = Modifier
             .fillMaxWidth()
-            .padding(MaterialTheme.spacing.medium)
+            .padding(spacing.medium)
     ) {
         val context = LocalContext.current
         Text(
@@ -50,7 +50,7 @@ fun EraseContent(
             style = MaterialTheme.typography.body2,
             textAlign = TextAlign.Center,
             color = Color.DarkGray.copy(alpha = 0.5f),
-            modifier = Modifier.padding(top = MaterialTheme.spacing.medium)
+            modifier = Modifier.padding(top = spacing.medium)
         )
 
         TextButton(

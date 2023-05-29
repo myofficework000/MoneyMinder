@@ -66,9 +66,9 @@ fun Header(
     val totalExpense by homeViewModel.totalExpense.collectAsState()
     val currencyCode by homeViewModel.selectedCurrencyCode.collectAsState()
 
-    val extraSmall = MaterialTheme.spacing.extraSmall
-    val small = MaterialTheme.spacing.small
-    val medium = MaterialTheme.spacing.medium
+    val extraSmall = spacing.extraSmall
+    val small = spacing.small
+    val medium = spacing.medium
 
     BoxWithConstraints(
         modifier = Modifier
@@ -82,10 +82,10 @@ fun Header(
 
         Surface(
             modifier = Modifier.padding(
-                start = MaterialTheme.spacing.medium,
-                top = MaterialTheme.spacing.medium,
-                end = MaterialTheme.spacing.medium,
-                bottom = MaterialTheme.spacing.small
+                start = spacing.medium,
+                top = spacing.medium,
+                end = spacing.medium,
+                bottom = spacing.small
             ), color = Color.DarkGray.copy(alpha = 0.1f), shape = RoundedCornerShape(24.dp)
         ) {
             ConstraintLayout(
@@ -255,7 +255,7 @@ fun Header(
                                     color = Color.LightGray.copy(alpha = 0.35f)
                                 )
                             }
-                            .padding(MaterialTheme.spacing.small)
+                            .padding(spacing.small)
                     ) {
                         val animatedIncome by animateFloatAsState(
                             targetValue = totalIncome.toFloat(),
@@ -335,7 +335,7 @@ fun Header(
                                     color = Color.LightGray.copy(alpha = 0.35f)
                                 )
                             }
-                            .padding(MaterialTheme.spacing.small)
+                            .padding(spacing.small)
                     ) {
                         val animatedExpense by animateFloatAsState(
                             targetValue = totalExpense.toFloat(),

@@ -17,7 +17,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.business.money_minder.presentation.home_screen.TransactionType
 import com.business.money_minder.presentation.ui.theme.Amber500
-import com.business.money_minder.util.spacing
 
 @Composable
 fun InfoBanner(shown: Boolean, transactionType: TransactionType) {
@@ -35,7 +34,7 @@ fun InfoBanner(shown: Boolean, transactionType: TransactionType) {
         )
     ) {
         Surface(
-            modifier = Modifier.fillMaxWidth().padding(MaterialTheme.spacing.medium),
+            modifier = Modifier.fillMaxWidth().padding(spacing.medium),
             color = Amber500,
             shape = RoundedCornerShape(16.dp),
             elevation = 1.dp

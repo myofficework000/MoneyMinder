@@ -24,7 +24,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.business.money_minder.presentation.home_screen.HomeViewModel
 import com.business.money_minder.presentation.home_screen.TabButton
-import com.business.money_minder.util.spacing
+import spacing
 
 @Composable
 fun TabButton(
@@ -36,9 +36,9 @@ fun TabButton(
     val selectedTab by homeViewModel.tabButton.collectAsState()
     Surface(
         modifier = Modifier.padding(
-            start = MaterialTheme.spacing.medium,
-            end = MaterialTheme.spacing.medium,
-            top = MaterialTheme.spacing.small
+            start = spacing.medium,
+            end = spacing.medium,
+            top = spacing.small
         ),
         color = Color.DarkGray.copy(alpha = 0.1f),
         shape = RoundedCornerShape(cornerRadius)
@@ -47,8 +47,8 @@ fun TabButton(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(
-                    start = MaterialTheme.spacing.medium,
-                    end = MaterialTheme.spacing.medium
+                    start = spacing.medium,
+                    end = spacing.medium
                 ),
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically
@@ -73,7 +73,7 @@ fun TabButton(
                         onButtonClick()
                     },
                     modifier = Modifier
-                        .padding(vertical = MaterialTheme.spacing.extraSmall)
+                        .padding(vertical = spacing.extraSmall)
                         .weight(1f),
                     shape = RoundedCornerShape(cornerRadius),
                     colors = ButtonDefaults.outlinedButtonColors(
@@ -86,8 +86,8 @@ fun TabButton(
                         style = MaterialTheme.typography.subtitle2,
                         modifier = Modifier
                             .padding(
-                                horizontal = MaterialTheme.spacing.small,
-                                vertical = MaterialTheme.spacing.extraSmall
+                                horizontal = spacing.small,
+                                vertical = spacing.extraSmall
                             )
                             .align(Alignment.CenterVertically)
                     )

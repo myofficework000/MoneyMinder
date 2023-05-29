@@ -22,7 +22,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.business.money_minder.R
 import com.business.money_minder.presentation.ui.theme.Red500
-import com.business.money_minder.util.spacing
+import spacing
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
@@ -40,8 +40,8 @@ fun EraseSetting(modalBottomSheetState: ModalBottomSheetState, scope: CoroutineS
         modifier = Modifier
             .fillMaxSize()
             .padding(
-                horizontal = MaterialTheme.spacing.medium,
-                vertical = MaterialTheme.spacing.small
+                horizontal = spacing.medium,
+                vertical = spacing.small
             ),
         colors = ButtonDefaults.buttonColors(
             backgroundColor = Red500,
@@ -49,7 +49,7 @@ fun EraseSetting(modalBottomSheetState: ModalBottomSheetState, scope: CoroutineS
         ),
         shape = RoundedCornerShape(12.dp),
         contentPadding = PaddingValues(
-            horizontal = MaterialTheme.spacing.medium,
+            horizontal = spacing.medium,
             vertical = 20.dp
         )
     ) {

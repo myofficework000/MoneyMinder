@@ -22,7 +22,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.business.money_minder.R
 import com.business.money_minder.presentation.navigation.Screen
-import com.business.money_minder.util.spacing
+import spacing
 
 @Composable
 fun CurrencySetting(currency: String, navController: NavController) {
@@ -33,8 +33,8 @@ fun CurrencySetting(currency: String, navController: NavController) {
         modifier = Modifier
             .fillMaxSize()
             .padding(
-                horizontal = MaterialTheme.spacing.medium,
-                vertical = MaterialTheme.spacing.small
+                horizontal = spacing.medium,
+                vertical = spacing.small
             ),
         colors = ButtonDefaults.buttonColors(
             backgroundColor = Color.DarkGray.copy(alpha = 0.1f),
@@ -42,7 +42,7 @@ fun CurrencySetting(currency: String, navController: NavController) {
         ),
         shape = RoundedCornerShape(12.dp),
         contentPadding = PaddingValues(
-            horizontal = MaterialTheme.spacing.medium,
+            horizontal = spacing.medium,
             vertical = 20.dp
         )
     ) {

@@ -27,7 +27,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.business.money_minder.presentation.home_screen.Category
 import com.business.money_minder.presentation.home_screen.amountFormat
-import com.business.money_minder.util.spacing
+import spacing
 
 @Composable
 fun InsightItem(cat: Category, currencyCode: String, amount: Double, percent: Float) {
@@ -36,13 +36,13 @@ fun InsightItem(cat: Category, currencyCode: String, amount: Double, percent: Fl
         backgroundColor = Color.DarkGray.copy(alpha = 0.1f),
         shape = RoundedCornerShape(16.dp),
         modifier = Modifier
-            .padding(vertical = MaterialTheme.spacing.small)
+            .padding(vertical = spacing.small)
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Center,
             modifier = Modifier
-                .padding(MaterialTheme.spacing.medium)
+                .padding(spacing.medium)
         ) {
             Icon(
                 painter = painterResource(id = cat.iconRes),
@@ -53,7 +53,7 @@ fun InsightItem(cat: Category, currencyCode: String, amount: Double, percent: Fl
                 tint = cat.colorRes
             )
 
-            Spacer(modifier = Modifier.width(MaterialTheme.spacing.small))
+            Spacer(modifier = Modifier.width(spacing.small))
 
             Column(
                 verticalArrangement = Arrangement.SpaceBetween,

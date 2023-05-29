@@ -24,7 +24,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.business.money_minder.presentation.home_screen.HomeViewModel
 import com.business.money_minder.presentation.home_screen.amountFormat
 import com.business.money_minder.presentation.setting_screen.SettingViewModel
-import com.business.money_minder.util.spacing
+import spacing
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
@@ -50,8 +50,8 @@ fun LimitSetting(
         modifier = Modifier
             .fillMaxSize()
             .padding(
-                horizontal = MaterialTheme.spacing.medium,
-                vertical = MaterialTheme.spacing.small
+                horizontal = spacing.medium,
+                vertical = spacing.small
             ),
         colors = ButtonDefaults.buttonColors(
             backgroundColor = Color.DarkGray.copy(alpha = 0.1f),
@@ -59,7 +59,7 @@ fun LimitSetting(
         ),
         shape = RoundedCornerShape(12.dp),
         contentPadding = PaddingValues(
-            horizontal = MaterialTheme.spacing.medium,
+            horizontal = spacing.medium,
             vertical = 20.dp
         )
     ) {
