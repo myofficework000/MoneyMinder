@@ -24,7 +24,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.business.money_minder.presentation.home_screen.HomeViewModel
 import com.business.money_minder.presentation.home_screen.amountFormat
 import com.business.money_minder.presentation.setting_screen.SettingViewModel
-import spacing
+import com.business.money_minder.util.spacing
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 

@@ -22,7 +22,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.business.money_minder.presentation.setting_screen.SettingViewModel
 import com.business.money_minder.presentation.ui.theme.Red500
-import spacing
+import com.business.money_minder.util.spacing
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 

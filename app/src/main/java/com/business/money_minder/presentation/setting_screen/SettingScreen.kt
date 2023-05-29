@@ -40,7 +40,7 @@ import com.business.money_minder.presentation.setting_screen.components.LimitSet
 import com.business.money_minder.presentation.setting_screen.components.RateSetting
 import com.business.money_minder.presentation.setting_screen.components.ReminderSetting
 import com.business.money_minder.presentation.setting_screen.components.VersionSetting
-import spacing
+import com.business.money_minder.util.spacing
 
 @ExperimentalMaterialApi
 @ExperimentalUnitApi
