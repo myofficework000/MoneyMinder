@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import spacing
+import com.business.money_minder.util.spacing
 
 @Composable
 fun VersionSetting() {
@@ -49,7 +49,8 @@ fun VersionSetting() {
 
         CompositionLocalProvider(LocalContentAlpha provides ContentAlpha.medium) {
             val context = LocalContext.current
-            val packageManager = context.packageManager.getPackageInfo("com.business.money_minder", 0)
+            val packageManager =
+                context.packageManager.getPackageInfo("com.business.money_minder", 0)
             Text(
                 text = packageManager.versionName,
                 style = MaterialTheme.typography.subtitle2

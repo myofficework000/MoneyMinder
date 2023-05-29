@@ -48,7 +48,7 @@ import com.business.money_minder.R
 import com.business.money_minder.domain.model.CurrencyModel
 import com.business.money_minder.presentation.navigation.Screen
 import com.business.money_minder.presentation.ui.theme.Manrope
-import spacing
+import com.business.money_minder.util.spacing
 import kotlinx.coroutines.launch
 
 @ExperimentalMaterialApi
