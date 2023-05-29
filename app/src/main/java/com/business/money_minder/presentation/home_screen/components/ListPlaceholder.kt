@@ -14,7 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import com.business.money_minder.R
-import spacing
+import com.business.money_minder.util.spacing
 
 @Composable
 fun ListPlaceholder(
