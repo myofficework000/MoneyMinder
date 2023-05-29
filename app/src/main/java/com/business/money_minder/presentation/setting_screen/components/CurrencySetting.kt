@@ -22,7 +22,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.business.money_minder.R
 import com.business.money_minder.presentation.navigation.Screen
-import spacing
+import com.business.money_minder.util.spacing
 
 @Composable
 fun CurrencySetting(currency: String, navController: NavController) {

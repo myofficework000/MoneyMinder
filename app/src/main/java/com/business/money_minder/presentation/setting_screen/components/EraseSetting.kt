@@ -22,7 +22,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.business.money_minder.R
 import com.business.money_minder.presentation.ui.theme.Red500
-import spacing
+import com.business.money_minder.util.spacing
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 

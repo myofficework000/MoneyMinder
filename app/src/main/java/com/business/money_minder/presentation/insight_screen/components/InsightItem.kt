@@ -27,7 +27,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.business.money_minder.presentation.home_screen.Category
 import com.business.money_minder.presentation.home_screen.amountFormat
-import spacing
+import com.business.money_minder.util.spacing
 
 @Composable
 fun InsightItem(cat: Category, currencyCode: String, amount: Double, percent: Float) {

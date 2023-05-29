@@ -49,7 +49,7 @@ import androidx.work.WorkManager
 import com.business.money_minder.R
 import com.business.money_minder.presentation.setting_screen.SettingViewModel
 import com.business.money_minder.presentation.setting_screen.service.LimitResetWorker
-import spacing
+import com.business.money_minder.util.spacing
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.launch

@@ -43,7 +43,7 @@ import com.business.money_minder.presentation.home_screen.components.ListPlaceho
 import com.business.money_minder.presentation.insight_screen.components.DonutChart
 import com.business.money_minder.presentation.insight_screen.components.InsightItem
 import com.business.money_minder.presentation.insight_screen.components.InsightTabBar
-import spacing
+import com.business.money_minder.util.spacing
 
 @ExperimentalFoundationApi
 @ExperimentalUnitApi

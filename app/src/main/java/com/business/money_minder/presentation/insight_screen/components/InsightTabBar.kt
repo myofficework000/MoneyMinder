@@ -24,7 +24,7 @@ import com.business.money_minder.presentation.home_screen.TransactionType
 import com.business.money_minder.presentation.insight_screen.InsightViewModel
 import com.business.money_minder.presentation.ui.theme.GreenAlpha700
 import com.business.money_minder.presentation.ui.theme.Red500
-import spacing
+import com.business.money_minder.util.spacing
 
 @Composable
 fun InsightTabBar(
