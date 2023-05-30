@@ -4,6 +4,7 @@ import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.BoxWithConstraints
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -13,6 +14,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.BottomSheetScaffoldState
 import androidx.compose.material.ButtonDefaults
+import androidx.compose.material.ButtonElevation
 import androidx.compose.material.Card
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Icon
@@ -82,11 +84,11 @@ fun Header(
 
         Surface(
             modifier = Modifier.padding(
-                start = spacing.medium,
-                top = spacing.medium,
-                end = spacing.medium,
+                start = spacing.small,
+                top = spacing.small,
+                end = spacing.small,
                 bottom = spacing.small
-            ), color = Color.DarkGray.copy(alpha = 0.1f), shape = RoundedCornerShape(24.dp)
+            ), color = Color.DarkGray.copy(alpha = 0.1f), shape = RoundedCornerShape(16.dp)
         ) {
             ConstraintLayout(
                 modifier = Modifier
@@ -106,10 +108,10 @@ fun Header(
                     },
                     modifier = Modifier.constrainAs(addEntry) {
                         top.linkTo(parent.top, margin = small)
-                        end.linkTo(parent.end, margin = medium)
+                        end.linkTo(parent.end, margin = small)
                     },
                     colors = ButtonDefaults.buttonColors(Amber500.copy(alpha = 0.9f)),
-                    shape = RoundedCornerShape(24.dp)
+                    shape = RoundedCornerShape(18.dp)
                 )
                 {
                     Text(
@@ -117,9 +119,11 @@ fun Header(
                         style = MaterialTheme.typography.body2,
                         color = MaterialTheme.colors.onSurface,
                         modifier = Modifier
-                            .padding(8.dp),
+                            .padding(1.dp),
                         textAlign = TextAlign.Start
                     )
+
+                    Spacer(modifier = Modifier.padding(4.dp))
 
                     Icon(
                         painter = painterResource(id = R.drawable.add_entry),
@@ -131,18 +135,18 @@ fun Header(
                                 MaterialTheme.colors.onSurface,
                                 CircleShape
                             )
-                            .scale(0.7f)
+                            .scale(0.8f)
                     )
                 }
 
                 Text(
                     text = "Balance",
-                    style = MaterialTheme.typography.subtitle2.copy(fontWeight = FontWeight.Normal),
+                    style = MaterialTheme.typography.subtitle1.copy(fontWeight = FontWeight.ExtraBold),
                     color = MaterialTheme.colors.onSurface,
                     letterSpacing = TextUnit(1.5f, TextUnitType.Sp),
                     modifier = Modifier.constrainAs(balanceLabel) {
                         start.linkTo(parent.start, margin = medium)
-                        top.linkTo(addEntry.bottom)
+                        top.linkTo(parent.top, margin = medium)
                     }
                 )
 
