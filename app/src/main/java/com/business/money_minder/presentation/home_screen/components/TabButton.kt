@@ -24,6 +24,8 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.business.money_minder.presentation.home_screen.HomeViewModel
 import com.business.money_minder.presentation.home_screen.TabButton
+import com.business.money_minder.presentation.ui.theme.Peach
+import com.business.money_minder.presentation.ui.theme.RoyalBlue
 import com.business.money_minder.util.spacing
 
 @Composable
@@ -36,19 +38,19 @@ fun TabButton(
     val selectedTab by homeViewModel.tabButton.collectAsState()
     Surface(
         modifier = Modifier.padding(
-            start = spacing.medium,
-            end = spacing.medium,
-            top = spacing.small
+            start = spacing.small,
+            end = spacing.small,
+            top = spacing.extraSmall
         ),
-        color = Color.DarkGray.copy(alpha = 0.1f),
+        color = Peach.copy(alpha = 0.1f),
         shape = RoundedCornerShape(cornerRadius)
     ) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(
-                    start = spacing.medium,
-                    end = spacing.medium
+                    start = spacing.extraSmall,
+                    end = spacing.extraSmall
                 ),
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically
@@ -56,14 +58,14 @@ fun TabButton(
 
             tabs.forEach { tab ->
                 val backgroundColor by animateColorAsState(
-                    if (selectedTab == tab) MaterialTheme.colors.onSurface
+                    if (selectedTab == tab) RoyalBlue.copy(1f)
                     else Color.Transparent,
                     animationSpec = tween(durationMillis = 500, easing = LinearOutSlowInEasing)
                 )
 
                 val textColor by animateColorAsState(
                     if (selectedTab == tab) MaterialTheme.colors.surface
-                    else MaterialTheme.colors.onSurface,
+                    else RoyalBlue,
                     animationSpec = tween(durationMillis = 500, easing = LinearOutSlowInEasing)
                 )
 
@@ -73,7 +75,7 @@ fun TabButton(
                         onButtonClick()
                     },
                     modifier = Modifier
-                        .padding(vertical = spacing.extraSmall)
+                        .padding(horizontal = spacing.small)
                         .weight(1f),
                     shape = RoundedCornerShape(cornerRadius),
                     colors = ButtonDefaults.outlinedButtonColors(
@@ -83,10 +85,10 @@ fun TabButton(
                 ) {
                     Text(
                         text = tab.title,
-                        style = MaterialTheme.typography.subtitle2,
+                        style = MaterialTheme.typography.caption,
                         modifier = Modifier
                             .padding(
-                                horizontal = spacing.small,
+                                horizontal = spacing.extraSmall,
                                 vertical = spacing.extraSmall
                             )
                             .align(Alignment.CenterVertically)

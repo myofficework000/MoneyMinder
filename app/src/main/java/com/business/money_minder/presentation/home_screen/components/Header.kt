@@ -49,6 +49,7 @@ import com.business.money_minder.presentation.home_screen.HomeViewModel
 import com.business.money_minder.presentation.home_screen.amountFormat
 import com.business.money_minder.presentation.ui.theme.Amber500
 import com.business.money_minder.presentation.ui.theme.GreenAlpha700
+import com.business.money_minder.presentation.ui.theme.Peach
 import com.business.money_minder.presentation.ui.theme.Red500
 import com.business.money_minder.util.spacing
 import kotlinx.coroutines.launch
@@ -88,7 +89,7 @@ fun Header(
                 top = spacing.small,
                 end = spacing.small,
                 bottom = spacing.small
-            ), color = Color.DarkGray.copy(alpha = 0.1f), shape = RoundedCornerShape(16.dp)
+            ), color = Peach.copy(alpha = 0.1f), shape = RoundedCornerShape(16.dp)
         ) {
             ConstraintLayout(
                 modifier = Modifier
