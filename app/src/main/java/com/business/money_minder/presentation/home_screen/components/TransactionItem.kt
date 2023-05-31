@@ -2,6 +2,7 @@ package com.business.money_minder.presentation.home_screen.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -33,7 +34,9 @@ import com.business.money_minder.domain.model.Transaction
 import com.business.money_minder.presentation.home_screen.Category
 import com.business.money_minder.presentation.home_screen.HomeViewModel
 import com.business.money_minder.presentation.home_screen.amountFormat
+import com.business.money_minder.presentation.ui.theme.BG1ToBG2
 import com.business.money_minder.presentation.ui.theme.GreenAlpha700
+import com.business.money_minder.presentation.ui.theme.Peach
 import com.business.money_minder.presentation.ui.theme.Red500
 import com.business.money_minder.util.spacing
 
@@ -55,105 +58,105 @@ fun TransactionItem(
         onClick = {
             onItemClick()
         },
-        backgroundColor = Color.DarkGray.copy(alpha = 0.1f),
         elevation = 0.dp,
-        shape = RoundedCornerShape(24.dp),
+        shape = RoundedCornerShape(16.dp),
         modifier = Modifier
             .fillMaxWidth()
-            .padding(bottom = medium),
+            .padding(bottom = medium)
     ) {
-        Column(
-            verticalArrangement = Arrangement.SpaceBetween,
-            horizontalAlignment = Alignment.Start,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(
-                    horizontal = spacing.medium,
-                    vertical = spacing.small
-                )
-        ) {
-            Row(
-                horizontalArrangement = Arrangement.spacedBy(12.dp),
-                verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.fillMaxWidth()
+        Box(modifier = Modifier.background(brush = BG1ToBG2)) {
+            Column(
+                verticalArrangement = Arrangement.SpaceBetween,
+                horizontalAlignment = Alignment.Start,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(
+                        horizontal = spacing.small,
+                        vertical = spacing.small
+                    )
             ) {
+                Row(
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
 
-                Text(
-                    text = category.title,
-                    style = MaterialTheme.typography.button,
-                    fontWeight = FontWeight.Bold,
-                    modifier = Modifier
-                        .background(
-                            category.bgRes,
-                            shape = RoundedCornerShape(24.dp)
-                        )
-                        .padding(
-                            vertical = small,
-                            horizontal = medium
-                        ),
-                    color = category.colorRes,
-                    letterSpacing = TextUnit(1.1f, TextUnitType.Sp)
-                )
+                    Icon(
+                        painter = painterResource(id = category.iconRes),
+                        contentDescription = "transaction",
+                        tint = Color.Black,
+                        modifier = Modifier
+                            .background(
+                                Color.DarkGray.copy(alpha = 0.2f),
+                                RoundedCornerShape(8.dp)
+                            )
+                            .padding(18.dp)
+                    )
 
-                Text(
-                    text = transaction.account,
-                    style = MaterialTheme.typography.button,
-                    fontWeight = FontWeight.Bold,
-                    modifier = Modifier
-                        .background(
-                            Color.White,
-                            shape = RoundedCornerShape(24.dp)
-                        )
-                        .padding(
-                            vertical = small,
-                            horizontal = medium
-                        ),
-                    color = Color.Black,
-                    letterSpacing = TextUnit(1.1f, TextUnitType.Sp)
-                )
+                    Column(verticalArrangement = Arrangement.SpaceBetween) {
+                        if (transaction.title.isNotEmpty()) {
+                            Text(
+                                text = transaction.title,
+                                style = MaterialTheme.typography.body2,
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis
+                            )
 
-            }
+                            Spacer(modifier = Modifier.height(spacing.extraSmall))
+                        }
 
-            Spacer(modifier = Modifier.height(spacing.medium))
-
-            Row(
-                horizontalArrangement = Arrangement.spacedBy(8.dp),
-                verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.fillMaxWidth()
-            ) {
-
-                Icon(
-                    painter = painterResource(id = category.iconRes),
-                    contentDescription = "transaction",
-                    tint = Color.Black,
-                    modifier = Modifier
-                        .background(
-                            Color.DarkGray.copy(alpha = 0.2f),
-                            RoundedCornerShape(8.dp)
-                        )
-                        .padding(18.dp)
-                )
-
-                Column(verticalArrangement = Arrangement.SpaceBetween) {
-                    if (transaction.title.isNotEmpty()) {
                         Text(
-                            text = transaction.title,
-                            style = MaterialTheme.typography.body2,
+                            text = currencyCode + "${transaction.amount}".amountFormat(),
+                            color = if (transaction.transactionType == Constants.INCOME)
+                                GreenAlpha700
+                            else Red500.copy(alpha = 0.75f),
+                            style = MaterialTheme.typography.subtitle1.copy(fontWeight = FontWeight.W600),
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis
                         )
-
-                        Spacer(modifier = Modifier.height(spacing.extraSmall))
                     }
+                }
+
+                Spacer(modifier = Modifier.height(spacing.medium))
+
+                Row(
+                    horizontalArrangement = Arrangement.spacedBy(12.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
 
                     Text(
-                        text = currencyCode + "${transaction.amount}".amountFormat(),
-                        color = if (transaction.transactionType == Constants.INCOME)
-                            GreenAlpha700
-                        else Red500.copy(alpha = 0.75f),
-                        style = MaterialTheme.typography.subtitle1.copy(fontWeight = FontWeight.W600),
-                        maxLines = 1,
-                        overflow = TextOverflow.Ellipsis
+                        text = category.title,
+                        style = MaterialTheme.typography.button,
+                        fontWeight = FontWeight.Bold,
+                        modifier = Modifier
+                            .background(
+                                category.bgRes,
+                                shape = RoundedCornerShape(24.dp)
+                            )
+                            .padding(
+                                vertical = small,
+                                horizontal = medium
+                            ),
+                        color = category.colorRes,
+                        letterSpacing = TextUnit(1.1f, TextUnitType.Sp)
+                    )
+
+                    Text(
+                        text = transaction.account,
+                        style = MaterialTheme.typography.button,
+                        fontWeight = FontWeight.Bold,
+                        modifier = Modifier
+                            .background(
+                                Color.White,
+                                shape = RoundedCornerShape(24.dp)
+                            )
+                            .padding(
+                                vertical = small,
+                                horizontal = medium
+                            ),
+                        color = Color.Black,
+                        letterSpacing = TextUnit(1.1f, TextUnitType.Sp)
                     )
                 }
             }
