@@ -15,13 +15,13 @@ import com.business.money_minder.util.WindowInfo
 import com.business.money_minder.util.rememberWindowInfo
 
 private val DarkColorPalette = darkColors(
-    primary = Indigo900,
+    primary = RoyalBlue,
     secondary = Indigo900,
     background = DeepPurple900,
     surface = DeepPurple300,
     error = Red200,
     onSurface = White,
-    onPrimary = Color.White,
+    onPrimary = Peach,
     onSecondary = Color.White,
     onBackground = Color.White
 )
