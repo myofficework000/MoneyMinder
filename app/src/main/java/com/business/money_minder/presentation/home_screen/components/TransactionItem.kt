@@ -127,12 +127,12 @@ fun TransactionItem(
 
                     Text(
                         text = category.title,
-                        style = MaterialTheme.typography.button,
+                        style = MaterialTheme.typography.caption,
                         fontWeight = FontWeight.Bold,
                         modifier = Modifier
                             .background(
                                 category.bgRes,
-                                shape = RoundedCornerShape(24.dp)
+                                shape = RoundedCornerShape(12.dp)
                             )
                             .padding(
                                 vertical = small,
@@ -144,12 +144,12 @@ fun TransactionItem(
 
                     Text(
                         text = transaction.account,
-                        style = MaterialTheme.typography.button,
+                        style = MaterialTheme.typography.caption,
                         fontWeight = FontWeight.Bold,
                         modifier = Modifier
                             .background(
                                 Color.White,
-                                shape = RoundedCornerShape(24.dp)
+                                shape = RoundedCornerShape(12.dp)
                             )
                             .padding(
                                 vertical = small,
