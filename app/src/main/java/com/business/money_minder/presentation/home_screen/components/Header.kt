@@ -33,6 +33,7 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
@@ -44,6 +45,7 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.business.money_minder.R
+import com.business.money_minder.common.standardQuadFromTo
 import com.business.money_minder.presentation.home_screen.HomeViewModel
 import com.business.money_minder.presentation.home_screen.amountFormat
 import com.business.money_minder.presentation.ui.theme.Amber500
@@ -52,7 +54,6 @@ import com.business.money_minder.presentation.ui.theme.Peach
 import com.business.money_minder.presentation.ui.theme.Red500
 import com.business.money_minder.util.spacing
 import kotlinx.coroutines.launch
-import kotlin.math.abs
 
 @ExperimentalMaterialApi
 @ExperimentalUnitApi
@@ -75,7 +76,7 @@ fun Header(
     BoxWithConstraints(
         modifier = Modifier
             .fillMaxWidth()
-            .fillMaxHeight(0.5f),
+            .fillMaxHeight(0.32f),
         contentAlignment = Alignment.Center
     ) {
 
@@ -140,7 +141,7 @@ fun Header(
                 }
 
                 Text(
-                    text = "Balance",
+                    text = stringResource(id = R.string.balance),
                     style = MaterialTheme.typography.subtitle1.copy(fontWeight = FontWeight.ExtraBold),
                     color = MaterialTheme.colors.onSurface,
                     letterSpacing = TextUnit(1.5f, TextUnitType.Sp),
@@ -242,7 +243,7 @@ fun Header(
                             top.linkTo(amountLabel.bottom, margin = small)
                             start.linkTo(parent.start, margin = medium)
                             width = Dimension.percent(0.42f)
-                            height = Dimension.percent(0.50f)
+                            height = Dimension.percent(0.42f)
                         }
                 ) {
                     ConstraintLayout(
@@ -268,7 +269,7 @@ fun Header(
                         val (incomeIcon, incomeLabel, code, incomeAmount) = createRefs()
                         Icon(
                             painter = painterResource(id = R.drawable.income),
-                            contentDescription = "Income",
+                            contentDescription = stringResource(id = R.string.income),
                             tint = MaterialTheme.colors.surface,
                             modifier = Modifier
                                 .constrainAs(incomeIcon) {
@@ -278,7 +279,7 @@ fun Header(
                                 .then(Modifier.size(24.dp))
                         )
                         Text(
-                            text = "Income",
+                            text = stringResource(id = R.string.income),
                             style = MaterialTheme.typography.subtitle2,
                             color = MaterialTheme.colors.surface,
                             modifier = Modifier.constrainAs(incomeLabel) {
@@ -292,11 +293,12 @@ fun Header(
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis,
                             color = MaterialTheme.colors.surface,
-                            modifier = Modifier.constrainAs(code) {
-                                start.linkTo(incomeAmount.end)
-                                bottom.linkTo(parent.bottom)
-                                top.linkTo(parent.top)
-                            }.padding(start = extraSmall)
+                            modifier = Modifier
+                                .constrainAs(code) {
+                                    start.linkTo(incomeAmount.end)
+                                    bottom.linkTo(parent.bottom)
+                                }
+                                .padding(start = extraSmall)
                         )
                         Text(
                             text = "$animatedIncome".amountFormat().trim(),
@@ -307,11 +309,9 @@ fun Header(
                             modifier = Modifier.constrainAs(incomeAmount) {
                                 start.linkTo(parent.start)
                                 bottom.linkTo(parent.bottom)
-                                top.linkTo(parent.top)
                             }
                         )
                     }
-
                 }
 
                 Card(
@@ -323,7 +323,7 @@ fun Header(
                             top.linkTo(amountLabel.bottom, margin = small)
                             end.linkTo(parent.end, margin = medium)
                             width = Dimension.percent(0.42f)
-                            height = Dimension.percent(0.50f)
+                            height = Dimension.percent(0.42f)
                         }
                 ) {
                     ConstraintLayout(
@@ -349,7 +349,7 @@ fun Header(
                         val (expenseIcon, expenseLabel, code, expenseAmount) = createRefs()
                         Icon(
                             painter = painterResource(id = R.drawable.expense),
-                            contentDescription = "Expense",
+                            contentDescription = stringResource(id = R.string.expense),
                             tint = MaterialTheme.colors.surface,
                             modifier = Modifier
                                 .constrainAs(expenseIcon) {
@@ -359,7 +359,7 @@ fun Header(
                                 .then(Modifier.size(24.dp))
                         )
                         Text(
-                            text = "Expense",
+                            text = stringResource(id = R.string.expense),
                             style = MaterialTheme.typography.subtitle2,
                             color = MaterialTheme.colors.surface,
                             modifier = Modifier.constrainAs(expenseLabel) {
@@ -373,36 +373,27 @@ fun Header(
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis,
                             color = MaterialTheme.colors.surface,
-                            modifier = Modifier.constrainAs(code) {
-                                start.linkTo(expenseAmount.end)
-                                bottom.linkTo(parent.bottom)
-                                top.linkTo(parent.top)
-                            }.padding(extraSmall)
+                            modifier = Modifier
+                                .constrainAs(code) {
+                                    start.linkTo(expenseAmount.end)
+                                    bottom.linkTo(parent.bottom)
+                                }
+                                .padding(start = extraSmall)
                         )
                         Text(
                             text = "$animatedExpense".amountFormat().trim(),
-                            style = MaterialTheme.typography.body2,
+                            style = MaterialTheme.typography.body1,
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis,
                             color = MaterialTheme.colors.surface,
                             modifier = Modifier.constrainAs(expenseAmount) {
                                 start.linkTo(parent.start)
                                 bottom.linkTo(parent.bottom)
-                                top.linkTo(parent.top)
                             }
                         )
                     }
                 }
-
             }
         }
     }
-}
-
-fun Path.standardQuadFromTo(from: Offset, to: Offset) {
-    quadraticBezierTo(
-        from.x, from.y,
-        abs(from.x + to.x) / 2f,
-        abs(from.y + to.y) / 2f
-    )
 }

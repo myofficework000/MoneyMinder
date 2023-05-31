@@ -5,4 +5,7 @@
     <string name="confirm">Confirm\n</string>
     <string name="income_title">Income title</string>
     <string name="expense_title">Expense title\n</string>
+    <string name="balance">Balance\n</string>
+    <string name="income">Income</string>
+    <string name="expense">Expense\n</string>
 </resources>
