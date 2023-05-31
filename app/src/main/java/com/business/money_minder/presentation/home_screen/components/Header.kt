@@ -43,6 +43,7 @@ import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
+import androidx.constraintlayout.compose.atLeastWrapContent
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.business.money_minder.R
 import com.business.money_minder.presentation.home_screen.HomeViewModel
@@ -242,9 +243,8 @@ fun Header(
                         .constrainAs(incomeCard) {
                             top.linkTo(amountLabel.bottom, margin = small)
                             start.linkTo(parent.start, margin = medium)
-                            bottom.linkTo(parent.bottom, margin = small)
                             width = Dimension.percent(0.42f)
-                            height = Dimension.fillToConstraints
+                            height = Dimension.percent(0.50f)
                         }
                 ) {
                     ConstraintLayout(
@@ -284,8 +284,8 @@ fun Header(
                             style = MaterialTheme.typography.subtitle2,
                             color = MaterialTheme.colors.surface,
                             modifier = Modifier.constrainAs(incomeLabel) {
-                                top.linkTo(incomeIcon.bottom, margin = extraSmall)
-                                start.linkTo(parent.start)
+                                end.linkTo(parent.end, margin = extraSmall)
+                                top.linkTo(parent.top, margin = extraSmall)
                             }
                         )
                         Text(
@@ -295,19 +295,21 @@ fun Header(
                             overflow = TextOverflow.Ellipsis,
                             color = MaterialTheme.colors.surface,
                             modifier = Modifier.constrainAs(code) {
-                                start.linkTo(parent.start)
-                                bottom.linkTo(incomeAmount.top)
-                            }
+                                start.linkTo(incomeAmount.end)
+                                bottom.linkTo(parent.bottom)
+                                top.linkTo(parent.top)
+                            }.padding(start = extraSmall)
                         )
                         Text(
                             text = "$animatedIncome".amountFormat().trim(),
-                            style = MaterialTheme.typography.body2,
+                            style = MaterialTheme.typography.body1,
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis,
                             color = MaterialTheme.colors.surface,
                             modifier = Modifier.constrainAs(incomeAmount) {
                                 start.linkTo(parent.start)
                                 bottom.linkTo(parent.bottom)
+                                top.linkTo(parent.top)
                             }
                         )
                     }
@@ -322,9 +324,8 @@ fun Header(
                         .constrainAs(expenseCard) {
                             top.linkTo(amountLabel.bottom, margin = small)
                             end.linkTo(parent.end, margin = medium)
-                            bottom.linkTo(parent.bottom, margin = small)
                             width = Dimension.percent(0.42f)
-                            height = Dimension.fillToConstraints
+                            height = Dimension.percent(0.50f)
                         }
                 ) {
                     ConstraintLayout(
@@ -364,8 +365,8 @@ fun Header(
                             style = MaterialTheme.typography.subtitle2,
                             color = MaterialTheme.colors.surface,
                             modifier = Modifier.constrainAs(expenseLabel) {
-                                top.linkTo(expenseIcon.bottom, margin = extraSmall)
-                                start.linkTo(parent.start)
+                                top.linkTo(parent.top, margin = extraSmall)
+                                end.linkTo(parent.end, margin = extraSmall)
                             }
                         )
                         Text(
@@ -375,9 +376,10 @@ fun Header(
                             overflow = TextOverflow.Ellipsis,
                             color = MaterialTheme.colors.surface,
                             modifier = Modifier.constrainAs(code) {
-                                start.linkTo(parent.start)
-                                bottom.linkTo(expenseAmount.top)
-                            }
+                                start.linkTo(expenseAmount.end)
+                                bottom.linkTo(parent.bottom)
+                                top.linkTo(parent.top)
+                            }.padding(extraSmall)
                         )
                         Text(
                             text = "$animatedExpense".amountFormat().trim(),
@@ -388,6 +390,7 @@ fun Header(
                             modifier = Modifier.constrainAs(expenseAmount) {
                                 start.linkTo(parent.start)
                                 bottom.linkTo(parent.bottom)
+                                top.linkTo(parent.top)
                             }
                         )
                     }
