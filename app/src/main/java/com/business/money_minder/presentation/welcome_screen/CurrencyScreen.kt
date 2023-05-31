@@ -2,6 +2,7 @@ package com.business.money_minder.presentation.welcome_screen
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -33,6 +34,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
@@ -48,6 +51,8 @@ import com.business.money_minder.R
 import com.business.money_minder.domain.model.CurrencyModel
 import com.business.money_minder.presentation.navigation.Screen
 import com.business.money_minder.presentation.ui.theme.Manrope
+import com.business.money_minder.presentation.ui.theme.RoyalBlue
+import com.business.money_minder.util.OutlinedSearchBar
 import com.business.money_minder.util.spacing
 import kotlinx.coroutines.launch
 
@@ -60,7 +65,7 @@ fun CurrencyScreen(
     setting: Boolean?,
     welcomeViewModel: WelcomeViewModel = hiltViewModel()
 ) {
-    val currencies by welcomeViewModel.countryCurrencies
+    val currencies by welcomeViewModel.countryCurrenciesFiltered
     var selectedCountry by remember { mutableStateOf(CurrencyModel()) }
 
     val coroutineScope = rememberCoroutineScope()
@@ -88,7 +93,7 @@ fun CurrencyScreen(
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
 
-                Card(elevation = 1.dp) {
+                /*Card(elevation = 1.dp) {
                     Text(
                         text = stringResource(id = R.string.select_your_currency),
                         style = MaterialTheme.typography.h6.copy(fontWeight = FontWeight.W700),
@@ -103,6 +108,13 @@ fun CurrencyScreen(
                             ),
                         textAlign = TextAlign.Start
                     )
+                }*/
+
+                OutlinedSearchBar(
+                    modifier = Modifier.fillMaxWidth().padding(16.dp),
+                    label = { Text(stringResource(id = R.string.select_your_currency)) }
+                ){
+                    welcomeViewModel.filterSearchResult(it)
                 }
 
                 LazyColumn(
@@ -165,7 +177,7 @@ fun CurrencyScreen(
                                     colors = ButtonDefaults.buttonColors(
                                         backgroundColor = if (selectedCountry == currency)
                                             MaterialTheme.colors.primary
-                                        else Color.DarkGray.copy(alpha = 0.1f),
+                                        else RoyalBlue.copy(alpha = 0.25f),
                                         contentColor = if (selectedCountry == currency)
                                             contentColorFor(backgroundColor = MaterialTheme.colors.primary)
                                         else MaterialTheme.colors.onSurface
@@ -187,7 +199,7 @@ fun CurrencyScreen(
 
                                             withStyle(
                                                 style = SpanStyle(
-                                                    color = Color.DarkGray.copy(alpha = 0.5f),
+                                                    color = Color.White.copy(alpha = 0.5f),
                                                     fontWeight = FontWeight.Normal,
                                                     fontFamily = Manrope,
                                                     fontSize = 14.sp

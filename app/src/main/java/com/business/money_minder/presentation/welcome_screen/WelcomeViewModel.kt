@@ -28,6 +28,9 @@ class WelcomeViewModel @Inject constructor(
     var countryCurrencies = mutableStateOf(emptyMap<Char, List<CurrencyModel>>())
         private set
 
+    var countryCurrenciesFiltered = mutableStateOf(emptyMap<Char, List<CurrencyModel>>())
+        private set
+
     init {
         countryCurrencies.value = getCurrencyUseCase().groupBy { it.country[0] }
     }
@@ -60,5 +63,20 @@ class WelcomeViewModel @Inject constructor(
                 )
             )
         }
+    }
+
+    fun filterSearchResult(keywords: String) {
+        countryCurrenciesFiltered.value = if (keywords.isBlank())
+            countryCurrencies.value
+        else
+            countryCurrencies.value.filterKeys {
+                it.lowercaseChar() == keywords.first().lowercaseChar()
+            }.toMutableMap().apply {
+                forEach { kvPair ->
+                    this[kvPair.key] = kvPair.value.filter { item ->
+                        item.country.lowercase().contains(keywords.lowercase())
+                    }
+                }
+            }
     }
 }
