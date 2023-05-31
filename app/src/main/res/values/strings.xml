@@ -3,4 +3,6 @@
     <string name="add_expenses">Add Expenses</string>
     <string name="select_your_currency">Select your currency</string>
     <string name="confirm">Confirm\n</string>
+    <string name="income_title">Income title</string>
+    <string name="expense_title">Expense title\n</string>
 </resources>

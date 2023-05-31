@@ -50,6 +50,7 @@ import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
@@ -241,8 +242,8 @@ fun TransactionScreen(
                         placeholder = {
                             Text(
                                 text = if (transactionType == TransactionType.INCOME)
-                                    "Income title"
-                                else "Expense title",
+                                    stringResource(id = R.string.income_title)
+                                else stringResource(id = R.string.expense_title),
                                 style = MaterialTheme.typography.h5.copy(fontWeight = FontWeight.W600)
                             )
                         },
