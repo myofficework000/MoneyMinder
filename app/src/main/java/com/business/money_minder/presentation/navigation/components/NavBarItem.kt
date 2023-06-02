@@ -31,7 +31,7 @@ fun NavBarItem(item: NavBarItemHolder, onClick: () -> Unit, selected: Boolean) {
     val backgroundColor =
         if (selected) MaterialTheme.colors.onSurface.copy(alpha = 0.1f) else Color.Transparent
     val contentColor =
-        if (selected) MaterialTheme.colors.onSurface else Color.Gray
+        if (selected) MaterialTheme.colors.onSurface else MaterialTheme.colors.onSecondary
 
     Box(
         modifier = Modifier

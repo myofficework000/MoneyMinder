@@ -25,10 +25,9 @@ fun BottomNavBar(
 ) {
     val backStackEntry by navController.currentBackStackEntryAsState()
     Card(
-        modifier = Modifier
-            .background(MaterialTheme.colors.background)
-            .fillMaxWidth(),
-        elevation = 4.dp
+        modifier = Modifier.fillMaxWidth(),
+        elevation = 4.dp,
+        backgroundColor = MaterialTheme.colors.primary
     ) {
         Row(
             modifier = Modifier.padding(8.dp),

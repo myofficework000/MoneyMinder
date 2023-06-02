@@ -58,8 +58,8 @@ fun InsightTabBar(
                     targetValue = if (selectedTab == TransactionType.INCOME)
                         GreenAlpha700 else Color.Transparent
                 ).value,
-                textColor = if (selectedTab == TransactionType.INCOME)
-                    Color.White else Color.Black
+                textColor = MaterialTheme.colors.onBackground
+                //if (selectedTab == TransactionType.INCOME) Color.White else Color.Black
             )
 
             InsightBar(
@@ -73,8 +73,8 @@ fun InsightTabBar(
                     targetValue = if (selectedTab == TransactionType.EXPENSE)
                         Red500 else Color.Transparent
                 ).value,
-                textColor = if (selectedTab == TransactionType.EXPENSE)
-                    Color.White else Color.Black
+                textColor = MaterialTheme.colors.onBackground
+                //if (selectedTab == TransactionType.EXPENSE) Color.White else Color.Black
             )
         }
     }

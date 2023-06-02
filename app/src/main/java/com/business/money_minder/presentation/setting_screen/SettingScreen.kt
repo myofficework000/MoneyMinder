@@ -37,6 +37,7 @@ import com.business.money_minder.presentation.setting_screen.components.EraseCon
 import com.business.money_minder.presentation.setting_screen.components.EraseSetting
 import com.business.money_minder.presentation.setting_screen.components.LimitContent
 import com.business.money_minder.presentation.setting_screen.components.LimitSetting
+import com.business.money_minder.presentation.setting_screen.components.PrivacySetting
 import com.business.money_minder.presentation.setting_screen.components.RateSetting
 import com.business.money_minder.presentation.setting_screen.components.ReminderSetting
 import com.business.money_minder.presentation.setting_screen.components.VersionSetting
@@ -119,7 +120,6 @@ fun SettingScreen(
                         Text(
                             text = "App",
                             style = MaterialTheme.typography.subtitle1,
-                            color = Color.DarkGray.copy(alpha = 0.8f),
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .padding(
@@ -140,9 +140,4 @@ fun SettingScreen(
             }
         }
     }
-}
-
-@Composable
-fun PrivacySetting() {
-    Text("Privacy setting")
 }
