@@ -16,10 +16,13 @@ import com.business.money_minder.presentation.account_screen.AccountScreen
 import com.business.money_minder.presentation.home_screen.HomeScreen
 import com.business.money_minder.presentation.home_screen.TransactionScreen
 import com.business.money_minder.presentation.insight_screen.InsightScreen
+import com.business.money_minder.presentation.main.MainViewModel
 import com.business.money_minder.presentation.setting_screen.SettingScreen
 import com.business.money_minder.presentation.welcome_screen.CurrencyScreen
 import com.business.money_minder.presentation.welcome_screen.WelcomeScreen
+import kotlinx.coroutines.InternalCoroutinesApi
 
+@OptIn(InternalCoroutinesApi::class)
 @ExperimentalFoundationApi
 @ExperimentalComposeUiApi
 @ExperimentalMaterialApi
@@ -28,7 +31,8 @@ import com.business.money_minder.presentation.welcome_screen.WelcomeScreen
 @Composable
 fun MainNavigation(
     navController: NavHostController,
-    startDestination: String
+    startDestination: String,
+    mainViewModel: MainViewModel
 ) {
     NavHost(navController = navController, startDestination = startDestination) {
         composable(route = Screen.WelcomeScreen.route) {
@@ -97,7 +101,10 @@ fun MainNavigation(
             AccountDetailScreen(entry.arguments?.getString("accountType"))
         }
         composable(route = Screen.SettingScreen.route) {
-            SettingScreen(navController = navController)
+            SettingScreen(
+                navController = navController,
+                mainViewModel = mainViewModel
+            )
         }
     }
 }

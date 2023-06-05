@@ -5,9 +5,6 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.layout.WindowInsets
-import androidx.compose.foundation.layout.asPaddingValues
-import androidx.compose.foundation.layout.systemBars
 import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.MaterialTheme
@@ -47,14 +44,16 @@ class MainActivity : ComponentActivity() {
         WindowCompat.setDecorFitsSystemWindows(window, false)
 
         setContent {
-            MoneyMinderTheme {
+            MoneyMinderTheme(mainViewModel = mainViewModel) {
                 Surface(
                     color = MaterialTheme.colors.background,
                     modifier = Modifier.systemBarsPadding()
                 ) {
                     val destination by mainViewModel.startDestination.collectAsState()
+
                     MainScreen(
                         startDestination = destination,
+                        mainViewModel = mainViewModel
                     )
                 }
             }

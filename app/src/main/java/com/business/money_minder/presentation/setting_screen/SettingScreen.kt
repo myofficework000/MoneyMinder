@@ -23,7 +23,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.ExperimentalUnitApi
@@ -32,6 +31,7 @@ import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.business.money_minder.presentation.main.MainViewModel
 import com.business.money_minder.presentation.setting_screen.components.CurrencySetting
 import com.business.money_minder.presentation.setting_screen.components.EraseContent
 import com.business.money_minder.presentation.setting_screen.components.EraseSetting
@@ -40,18 +40,23 @@ import com.business.money_minder.presentation.setting_screen.components.LimitSet
 import com.business.money_minder.presentation.setting_screen.components.PrivacySetting
 import com.business.money_minder.presentation.setting_screen.components.RateSetting
 import com.business.money_minder.presentation.setting_screen.components.ReminderSetting
+import com.business.money_minder.presentation.setting_screen.components.ThemeSetting
 import com.business.money_minder.presentation.setting_screen.components.VersionSetting
 import com.business.money_minder.util.spacing
+import kotlinx.coroutines.InternalCoroutinesApi
 
+@OptIn(InternalCoroutinesApi::class)
 @ExperimentalMaterialApi
 @ExperimentalUnitApi
 @Composable
 fun SettingScreen(
     settingViewModel: SettingViewModel = hiltViewModel(),
-    navController: NavController
+    navController: NavController,
+    mainViewModel: MainViewModel
 ) {
 
     val currency by settingViewModel.currency.collectAsState()
+    val isThemeModeReversed by mainViewModel.isThemeModeReversed.collectAsState()
 
     val modalBottomSheetState = rememberModalBottomSheetState(
         initialValue = ModalBottomSheetValue.Hidden
@@ -112,6 +117,11 @@ fun SettingScreen(
                         }
 
                         ReminderSetting()
+
+                        ThemeSetting(
+                            isThemeModeReversed,
+                            mainViewModel::reverseTheme
+                        )
 
                         EraseSetting(modalBottomSheetState, scope) {
                             sheetRankState.value = it

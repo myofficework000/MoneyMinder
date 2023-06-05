@@ -20,10 +20,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.ExperimentalUnitApi
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.business.money_minder.presentation.main.MainViewModel
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.business.money_minder.presentation.navigation.components.BottomNavBar
 import com.business.money_minder.presentation.navigation.components.provideBottomNavItems
+import kotlinx.coroutines.InternalCoroutinesApi
 
+@OptIn(InternalCoroutinesApi::class)
 @ExperimentalAnimationApi
 @ExperimentalPagerApi
 @ExperimentalUnitApi
@@ -32,7 +35,8 @@ import com.business.money_minder.presentation.navigation.components.provideBotto
 @ExperimentalFoundationApi
 @Composable
 fun MainScreen(
-    startDestination: String
+    startDestination: String,
+    mainViewModel: MainViewModel
 ) {
     val navController = rememberNavController()
     val scaffoldState = rememberScaffoldState()
@@ -76,6 +80,7 @@ fun MainScreen(
         ) {
             MainNavigation(
                 navController = navController,
+                mainViewModel = mainViewModel,
                 startDestination = startDestination
             )
         }
