@@ -270,7 +270,7 @@ fun Header(
                         Icon(
                             painter = painterResource(id = R.drawable.income),
                             contentDescription = stringResource(id = R.string.income),
-                            tint = MaterialTheme.colors.surface,
+                            tint = MaterialTheme.colors.onSurface,
                             modifier = Modifier
                                 .constrainAs(incomeIcon) {
                                     start.linkTo(parent.start)
@@ -281,7 +281,7 @@ fun Header(
                         Text(
                             text = stringResource(id = R.string.income),
                             style = MaterialTheme.typography.subtitle2,
-                            color = MaterialTheme.colors.surface,
+                            color = MaterialTheme.colors.onSurface,
                             modifier = Modifier.constrainAs(incomeLabel) {
                                 end.linkTo(parent.end, margin = extraSmall)
                                 top.linkTo(parent.top, margin = extraSmall)
@@ -292,7 +292,7 @@ fun Header(
                             style = MaterialTheme.typography.body1,
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis,
-                            color = MaterialTheme.colors.surface,
+                            color = MaterialTheme.colors.onSurface,
                             modifier = Modifier
                                 .constrainAs(code) {
                                     start.linkTo(incomeAmount.end)
@@ -305,7 +305,7 @@ fun Header(
                             style = MaterialTheme.typography.body1,
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis,
-                            color = MaterialTheme.colors.surface,
+                            color = MaterialTheme.colors.onSurface,
                             modifier = Modifier.constrainAs(incomeAmount) {
                                 start.linkTo(parent.start)
                                 bottom.linkTo(parent.bottom)
@@ -350,7 +350,7 @@ fun Header(
                         Icon(
                             painter = painterResource(id = R.drawable.expense),
                             contentDescription = stringResource(id = R.string.expense),
-                            tint = MaterialTheme.colors.surface,
+                            tint = MaterialTheme.colors.onSurface,
                             modifier = Modifier
                                 .constrainAs(expenseIcon) {
                                     start.linkTo(parent.start)
@@ -361,7 +361,7 @@ fun Header(
                         Text(
                             text = stringResource(id = R.string.expense),
                             style = MaterialTheme.typography.subtitle2,
-                            color = MaterialTheme.colors.surface,
+                            color = MaterialTheme.colors.onSurface,
                             modifier = Modifier.constrainAs(expenseLabel) {
                                 top.linkTo(parent.top, margin = extraSmall)
                                 end.linkTo(parent.end, margin = extraSmall)
@@ -372,7 +372,7 @@ fun Header(
                             style = MaterialTheme.typography.body1,
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis,
-                            color = MaterialTheme.colors.surface,
+                            color = MaterialTheme.colors.onSurface,
                             modifier = Modifier
                                 .constrainAs(code) {
                                     start.linkTo(expenseAmount.end)
@@ -385,7 +385,7 @@ fun Header(
                             style = MaterialTheme.typography.body1,
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis,
-                            color = MaterialTheme.colors.surface,
+                            color = MaterialTheme.colors.onSurface,
                             modifier = Modifier.constrainAs(expenseAmount) {
                                 start.linkTo(parent.start)
                                 bottom.linkTo(parent.bottom)

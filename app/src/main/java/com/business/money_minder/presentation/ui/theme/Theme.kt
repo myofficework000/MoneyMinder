@@ -22,18 +22,18 @@ private val DarkColorPalette = darkColors(
     error = Red200,
     onSurface = White,
     onPrimary = Peach,
-    onSecondary = Color.White,
+    onSecondary = Color.Gray,
     onBackground = Color.White
 )
 
 private val LightColorPalette = lightColors(
     primary = LightBlue500,
-    secondary = LightBlue500,
+    secondary = GreenAlpha700,
     background = Grey100,
     surface = White,
     error = Red500,
     onSurface = Black,
-    onPrimary = Color.White,
+    onPrimary = Color.Black,
     onSecondary = Color.White,
     onBackground = Color.Black
 )

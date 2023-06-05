@@ -109,7 +109,7 @@ fun AccountItem(account: Account, currency: String, onItemClick: (String) -> Uni
                         Text(
                             text = account.account,
                             style = MaterialTheme.typography.caption,
-                            color = contentColorFor(backgroundColor = MaterialTheme.colors.primary)
+                            color = contentColorFor(backgroundColor = MaterialTheme.colors.onSurface)
                         )
                     }
                     Row(
@@ -124,7 +124,7 @@ fun AccountItem(account: Account, currency: String, onItemClick: (String) -> Uni
                                     fontWeight = FontWeight.Normal,
                                     fontSize = 10.sp,
                                     letterSpacing = 0.4.sp,
-                                    color = contentColorFor(backgroundColor = MaterialTheme.colors.primary)
+                                    color = contentColorFor(backgroundColor = MaterialTheme.colors.onSurface)
                                 )
                             ) {
                                 append(currency)
@@ -134,7 +134,7 @@ fun AccountItem(account: Account, currency: String, onItemClick: (String) -> Uni
                                     fontWeight = FontWeight.Thin,
                                     fontSize = 18.sp,
                                     letterSpacing = 0.25.sp,
-                                            color = contentColorFor(backgroundColor = MaterialTheme.colors.primary)
+                                            color = contentColorFor(backgroundColor = MaterialTheme.colors.onSurface)
                                 )
                             ) {
                                 append(account.income.toString().amountFormat())
@@ -147,7 +147,7 @@ fun AccountItem(account: Account, currency: String, onItemClick: (String) -> Uni
                                     fontWeight = FontWeight.Thin,
                                     fontSize = 10.sp,
                                     letterSpacing = 0.4.sp,
-                                    color = contentColorFor(backgroundColor = MaterialTheme.colors.primary)
+                                    color = contentColorFor(backgroundColor = MaterialTheme.colors.onSurface)
                                 )
                             ) {
                                 append(currency)
@@ -157,7 +157,7 @@ fun AccountItem(account: Account, currency: String, onItemClick: (String) -> Uni
                                     fontWeight = FontWeight.Thin,
                                     fontSize = 18.sp,
                                     letterSpacing = 0.25.sp,
-                                    color = contentColorFor(backgroundColor = MaterialTheme.colors.primary)
+                                    color = contentColorFor(backgroundColor = MaterialTheme.colors.onSurface)
                                 )
                             ) {
                                 append(account.expense.toString().amountFormat())
@@ -174,13 +174,13 @@ fun AccountItem(account: Account, currency: String, onItemClick: (String) -> Uni
                         Text(
                             text = "INCOME",
                             style = MaterialTheme.typography.overline,
-                            color = contentColorFor(backgroundColor = MaterialTheme.colors.primary)
+                            color = contentColorFor(backgroundColor = MaterialTheme.colors.onSurface)
                         )
 
                         Text(
                             text = "EXPENSE",
                             style = MaterialTheme.typography.overline,
-                            color = contentColorFor(backgroundColor = MaterialTheme.colors.primary)
+                            color = contentColorFor(backgroundColor = MaterialTheme.colors.onSurface)
                         )
                     }
                 }
