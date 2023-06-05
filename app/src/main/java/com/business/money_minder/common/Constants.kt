@@ -21,5 +21,7 @@ class Constants {
         const val ANALYSIS_DETAIL =
             "Make right decisions, Control your money flow and stay on top of your game"
         const val ANALYSIS_ICON = "chart.json"
+
+        const val PREF_THEME = "light_dark_reversed"
     }
 }
