@@ -19,6 +19,11 @@ val RoyalBlue = Color(0xFF141A46)
 val Peach = Color(0xFFEC8B5E)
 val BG1 = Color(0xFFE4E7F7)
 val BG2 = Color(0xFFF0DDD4)
+
+
+val BG1_DARK = Color(0xFF3857F8)
+val BG2_DARK = Color(0xFFFA621B)
+
 val BG1ToBG2 = Brush.linearGradient(listOf(BG1, BG2))
 
 val GridButtonWhite = Color(0xFFE2E7EF)
