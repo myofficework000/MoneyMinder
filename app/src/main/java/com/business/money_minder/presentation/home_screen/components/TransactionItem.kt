@@ -36,7 +36,6 @@ import com.business.money_minder.presentation.home_screen.HomeViewModel
 import com.business.money_minder.presentation.home_screen.amountFormat
 import com.business.money_minder.presentation.ui.theme.BG1ToBG2
 import com.business.money_minder.presentation.ui.theme.GreenAlpha700
-import com.business.money_minder.presentation.ui.theme.Peach
 import com.business.money_minder.presentation.ui.theme.Red500
 import com.business.money_minder.util.spacing
 
@@ -96,8 +95,8 @@ fun TransactionItem(
                     Column(verticalArrangement = Arrangement.SpaceBetween) {
                         if (transaction.title.isNotEmpty()) {
                             Text(
-                                text = transaction.title,
-                                style = MaterialTheme.typography.body2,
+                                text = transaction.title.replaceFirstChar { it.uppercase() },
+                                style = MaterialTheme.typography.body1,
                                 maxLines = 1,
                                 overflow = TextOverflow.Ellipsis
                             )
@@ -106,7 +105,7 @@ fun TransactionItem(
                         }
 
                         Text(
-                            text = currencyCode + "${transaction.amount}".amountFormat(),
+                            text = "${transaction.amount}".amountFormat() + " $currencyCode",
                             color = if (transaction.transactionType == Constants.INCOME)
                                 GreenAlpha700
                             else Red500.copy(alpha = 0.75f),
