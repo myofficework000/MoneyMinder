@@ -189,12 +189,13 @@ fun TransactionScreen(
                         modifier = Modifier
                             .scale(0.8f)
                             .background(MaterialTheme.colors.primary, CircleShape)
+                            .border(1.dp, MaterialTheme.colors.onSurface, CircleShape)
 
                     ) {
                         Icon(
                             imageVector = Icons.Default.Done,
                             contentDescription = "enter",
-                            tint = MaterialTheme.colors.surface,
+                            tint = MaterialTheme.colors.onSurface,
                             modifier = Modifier
                                 .scale(0.9f)
                         )
