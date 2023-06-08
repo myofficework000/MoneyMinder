@@ -5,6 +5,7 @@ import androidx.compose.animation.core.LinearOutSlowInEasing
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -54,6 +55,7 @@ fun KeypadComponent(
         modifier = Modifier
             .fillMaxWidth()
             .fillMaxHeight(0.5f)
+            .background(MaterialTheme.colors.primary)
     ) {
         val (keyNine, keyEight, keySeven, keyClear) = createRefs()
         val (keyFour, keyFive, keySix, keyEnter) = createRefs()
@@ -167,7 +169,6 @@ fun KeypadComponent(
                 }
                 .aspectRatio(keyAspectRatio),
             shape = MaterialTheme.shapes.large,
-            colors = ButtonDefaults.buttonColors(Color.White),
             elevation = ButtonDefaults.elevation(
                 defaultElevation = 0.dp,
                 pressedElevation = 0.5.dp
@@ -205,7 +206,6 @@ fun KeypadComponent(
                 }
                 .aspectRatio(keyAspectRatio),
             shape = MaterialTheme.shapes.large,
-            colors = ButtonDefaults.buttonColors(Color.White),
             elevation = ButtonDefaults.elevation(
                 defaultElevation = 0.dp,
                 pressedElevation = 0.5.dp
@@ -243,7 +243,6 @@ fun KeypadComponent(
                 }
                 .aspectRatio(keyAspectRatio),
             shape = MaterialTheme.shapes.large,
-            colors = ButtonDefaults.buttonColors(Color.White),
             elevation = ButtonDefaults.elevation(
                 defaultElevation = 0.dp,
                 pressedElevation = 0.5.dp
@@ -322,7 +321,6 @@ fun KeypadComponent(
                 }
                 .aspectRatio(keyAspectRatio),
             shape = MaterialTheme.shapes.large,
-            colors = ButtonDefaults.buttonColors(Color.White),
             elevation = ButtonDefaults.elevation(
                 defaultElevation = 0.dp,
                 pressedElevation = 0.5.dp
@@ -360,7 +358,6 @@ fun KeypadComponent(
                 }
                 .aspectRatio(keyAspectRatio),
             shape = MaterialTheme.shapes.large,
-            colors = ButtonDefaults.buttonColors(Color.White),
             elevation = ButtonDefaults.elevation(
                 defaultElevation = 0.dp,
                 pressedElevation = 0.5.dp
@@ -398,7 +395,6 @@ fun KeypadComponent(
                 }
                 .aspectRatio(keyAspectRatio),
             shape = MaterialTheme.shapes.large,
-            colors = ButtonDefaults.buttonColors(Color.White),
             elevation = ButtonDefaults.elevation(
                 defaultElevation = 0.dp,
                 pressedElevation = 0.5.dp
@@ -481,7 +477,6 @@ fun KeypadComponent(
                 }
                 .aspectRatio(keyAspectRatio),
             shape = MaterialTheme.shapes.large,
-            colors = ButtonDefaults.buttonColors(Color.White),
             elevation = ButtonDefaults.elevation(
                 defaultElevation = 0.dp,
                 pressedElevation = 0.5.dp
@@ -519,7 +514,6 @@ fun KeypadComponent(
                 }
                 .aspectRatio(keyAspectRatio),
             shape = MaterialTheme.shapes.large,
-            colors = ButtonDefaults.buttonColors(Color.White),
             elevation = ButtonDefaults.elevation(
                 defaultElevation = 0.dp,
                 pressedElevation = 0.5.dp
@@ -557,7 +551,6 @@ fun KeypadComponent(
                 }
                 .aspectRatio(keyAspectRatio),
             shape = MaterialTheme.shapes.large,
-            colors = ButtonDefaults.buttonColors(Color.White),
             elevation = ButtonDefaults.elevation(
                 defaultElevation = 0.dp,
                 pressedElevation = 0.5.dp
@@ -597,7 +590,6 @@ fun KeypadComponent(
                     true
                 },
             shape = MaterialTheme.shapes.large,
-            colors = ButtonDefaults.buttonColors(Color.White),
             elevation = ButtonDefaults.elevation(
                 defaultElevation = 0.dp,
                 pressedElevation = 0.5.dp
@@ -636,7 +628,6 @@ fun KeypadComponent(
                     true
                 },
             shape = MaterialTheme.shapes.large,
-            colors = ButtonDefaults.buttonColors(Color.White),
             elevation = ButtonDefaults.elevation(
                 defaultElevation = 0.dp,
                 pressedElevation = 0.5.dp
