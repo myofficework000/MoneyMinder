@@ -33,6 +33,8 @@ import androidx.compose.material.Text
 import androidx.compose.material.TextButton
 import androidx.compose.material.TextField
 import androidx.compose.material.TextFieldDefaults
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Done
 import androidx.compose.material.rememberBottomSheetScaffoldState
 import androidx.compose.material.rememberBottomSheetState
 import androidx.compose.runtime.Composable
@@ -190,11 +192,11 @@ fun TransactionScreen(
 
                     ) {
                         Icon(
-                            painter = painterResource(id = R.drawable.enter),
+                            imageVector = Icons.Default.Done,
                             contentDescription = "enter",
                             tint = MaterialTheme.colors.surface,
                             modifier = Modifier
-                                .scale(0.8f)
+                                .scale(0.9f)
                         )
                     }
 
