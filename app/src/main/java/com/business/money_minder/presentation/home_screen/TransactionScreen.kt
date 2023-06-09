@@ -74,6 +74,7 @@ import com.business.money_minder.presentation.home_screen.components.KeypadCompo
 import com.business.money_minder.presentation.ui.theme.Amber500
 import com.business.money_minder.presentation.ui.theme.Red200
 import com.business.money_minder.util.spacing
+import com.business.money_minder.util.toCategory
 import kotlinx.coroutines.launch
 import java.util.Calendar
 
@@ -385,7 +386,9 @@ fun TransactionScreen(
                             )
                     )
 
-                    Category()
+                    if (transactionType == TransactionType.INCOME)
+                        Category(IncomeCategory::class.toCategory())
+                    else Category(ExpenseCategory::class.toCategory())
                 }
             }
         }

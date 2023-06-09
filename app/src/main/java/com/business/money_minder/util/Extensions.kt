@@ -12,6 +12,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
 import androidx.compose.ui.focus.onFocusEvent
 import androidx.compose.ui.platform.LocalFocusManager
+import com.business.money_minder.presentation.home_screen.CategoryItem
+import com.business.money_minder.presentation.home_screen.ExpenseCategory
+import kotlin.reflect.KClass
 
 
 @OptIn(ExperimentalLayoutApi::class)
@@ -28,3 +31,6 @@ fun Modifier.clearFocusOnKeyboardDismiss(): Modifier = composed {
         if (isFocused != it.isFocused) isFocused = it.isFocused
     }
 }
+
+fun<C: Enum<*>> KClass<C>.toCategory() =
+    this.java.enumConstants?.map { it as CategoryItem }?.toTypedArray() ?: arrayOf()

@@ -81,7 +81,7 @@ class HomeViewModel @Inject constructor(
     var tabButton = MutableStateFlow(TabButton.TODAY)
         private set
 
-    var category = MutableStateFlow(Category.FOOD_DRINK)
+    var category = MutableStateFlow<CategoryItem>(ExpenseCategory.FOOD_DRINK)
         private set
 
     var account = MutableStateFlow(Account.CASH)
@@ -213,7 +213,7 @@ class HomeViewModel @Inject constructor(
         tabButton.value = button
     }
 
-    fun selectCategory(category: Category) {
+    fun selectCategory(category: CategoryItem) {
         this.category.value = category
     }
 
@@ -359,7 +359,7 @@ class HomeViewModel @Inject constructor(
                 return@forEach
             }
             transactionAmount.value = transaction.amount.toString()
-            Category.values().forEach {
+            ExpenseCategory.values().forEach {
                 if (it.title == transaction.category)
                     selectCategory(it)
             }
@@ -467,18 +467,41 @@ enum class TransactionType(val title: String) {
     INCOME("income"), EXPENSE("expense")
 }
 
+interface CategoryItem{
+    val title: String
+    val iconRes: Int
+    val bgRes: Color
+    val colorRes: Color
+}
+
 enum class Account(val title: String, val iconRes: Int, val color: Color) {
     CASH("Cash", R.drawable.cash, leisureBg),
     BANK("Bank", R.drawable.bank, subBg),
     CARD("Card", R.drawable.credit_card, healthBg)
 }
 
-enum class Category(
-    val title: String,
-    val iconRes: Int,
-    val bgRes: Color,
-    val colorRes: Color = Color.White
-) {
+// Colors can be changed later.
+enum class IncomeCategory(
+    override val title: String,
+    override val iconRes: Int,
+    override val bgRes: Color,
+    override val colorRes: Color = Color.White
+): CategoryItem {
+    SALARY("Salary", R.drawable.cash, businessBg, Color.Black),
+    BUSINESS("Business", R.drawable.business, businessBg, Color.Black),
+    INVESTMENT("Investment", R.drawable.investment, businessBg, Color.Black),
+    RENTAL("Rental", R.drawable.home, homeBg, Color.Black),
+    LOTTERY("Lottery", R.drawable.lottery, businessBg, Color.Black),
+    FRIENDS("From Friends", R.drawable.friends, businessBg, Color.Black),
+    MISCELLANEOUS("Miscellaneous", R.drawable.misc, miscBg)
+}
+
+enum class ExpenseCategory(
+    override val title: String,
+    override val iconRes: Int,
+    override val bgRes: Color,
+    override val colorRes: Color = Color.White
+): CategoryItem {
     FOOD_DRINK("Food & Drink", R.drawable.drink, food_drink, Color.Black),
     CLOTHING("Clothing", R.drawable.clothing, clothBg, Color.Black),
     HOME("Home", R.drawable.home, homeBg, Color.Black),
