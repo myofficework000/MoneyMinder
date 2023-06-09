@@ -2,6 +2,7 @@ package com.business.money_minder.presentation.home_screen.components
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -20,19 +21,21 @@ import androidx.compose.ui.unit.ExperimentalUnitApi
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.business.money_minder.R
-import com.business.money_minder.presentation.home_screen.Category
+import com.business.money_minder.presentation.home_screen.CategoryItem
+import com.business.money_minder.presentation.home_screen.ExpenseCategory
 import com.business.money_minder.presentation.home_screen.HomeViewModel
 import com.business.money_minder.util.spacing
+import com.business.money_minder.util.toCategory
 import com.google.accompanist.flowlayout.FlowRow
 
 @ExperimentalUnitApi
 @Composable
 fun Category(
-    expenseItems: Array<Category> = Category.values()
+    expenseItems: Array<CategoryItem>
 ) {
     FlowRow(
         crossAxisSpacing = spacing.small,
-        modifier = Modifier.padding(
+        modifier = Modifier.fillMaxWidth().padding(
             start = spacing.medium,
             top = spacing.medium,
             bottom = spacing.medium,
@@ -46,7 +49,7 @@ fun Category(
 
 @ExperimentalUnitApi
 @Composable
-fun CategoryTag(category: Category, homeViewModel: HomeViewModel = hiltViewModel()) {
+fun CategoryTag(category: CategoryItem, homeViewModel: HomeViewModel = hiltViewModel()) {
     val selected by homeViewModel.category.collectAsState()
     var isSelected = selected.title == category.title
     TextButton(
@@ -86,5 +89,5 @@ fun CategoryTag(category: Category, homeViewModel: HomeViewModel = hiltViewModel
 @Preview(showBackground = true)
 @Composable
 fun CategoryPreview() {
-    Category()
+    Category(ExpenseCategory::class.toCategory())
 }

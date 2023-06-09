@@ -4,7 +4,7 @@ import com.business.money_minder.data.local.entity.AccountDto
 import com.business.money_minder.data.local.entity.TransactionDto
 import com.business.money_minder.domain.repository.TransactionRepository
 import com.business.money_minder.presentation.home_screen.Account
-import com.business.money_minder.presentation.home_screen.Category
+import com.business.money_minder.presentation.home_screen.ExpenseCategory
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import java.util.Calendar
@@ -18,7 +18,7 @@ class FakeTransactionRepository : TransactionRepository {
             "2022-04-28",
             500.0,
             Account.CASH.title,
-            Category.FOOD_DRINK.title,
+            ExpenseCategory.FOOD_DRINK.title,
             "expense",
             ""
         ),
@@ -27,7 +27,7 @@ class FakeTransactionRepository : TransactionRepository {
             "2022-04-28",
             200.0,
             Account.BANK.title,
-            Category.MISC.title,
+            ExpenseCategory.MISC.title,
             "expense",
             ""
         )

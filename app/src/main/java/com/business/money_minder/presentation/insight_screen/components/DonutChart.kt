@@ -1,7 +1,6 @@
 package com.business.money_minder.presentation.insight_screen.components
 
 import android.graphics.Paint
-import android.graphics.Typeface
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
@@ -26,16 +25,15 @@ import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.nativeCanvas
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.input.pointer.pointerInput
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import com.business.money_minder.presentation.home_screen.Category
+import com.business.money_minder.presentation.home_screen.ExpenseCategory
 import kotlin.math.atan2
 import kotlin.math.min
 import kotlin.math.roundToInt
 
 @Composable
 fun DonutChart(
-    filteredCategories: MutableList<Category>,
+    filteredCategories: MutableList<ExpenseCategory>,
     percentProgress: List<Float>
 ) {
     val angleProgress = percentProgress.map {
@@ -132,7 +130,7 @@ fun DonutChart(
 }
 
 fun DrawScope.DrawDonutArc(
-    cat: Category,
+    cat: ExpenseCategory,
     startAngle: Float,
     sweepAngle: Float,
     size: Size,

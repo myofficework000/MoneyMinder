@@ -25,12 +25,12 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.business.money_minder.presentation.home_screen.Category
+import com.business.money_minder.presentation.home_screen.ExpenseCategory
 import com.business.money_minder.presentation.home_screen.amountFormat
 import com.business.money_minder.util.spacing
 
 @Composable
-fun InsightItem(cat: Category, currencyCode: String, amount: Double, percent: Float) {
+fun InsightItem(cat: ExpenseCategory, currencyCode: String, amount: Double, percent: Float) {
     Card(
         elevation = 0.dp,
         backgroundColor = Color.DarkGray.copy(alpha = 0.1f),

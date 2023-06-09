@@ -9,7 +9,7 @@ import com.google.common.truth.Truth.assertThat
 import com.business.money_minder.data.local.entity.AccountDto
 import com.business.money_minder.data.local.entity.TransactionDto
 import com.business.money_minder.presentation.home_screen.Account
-import com.business.money_minder.presentation.home_screen.Category
+import com.business.money_minder.presentation.home_screen.ExpenseCategory
 import com.business.money_minder.presentation.home_screen.TransactionType
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
@@ -54,7 +54,7 @@ class TransactionDaoTest {
                     dateOfEntry = dateOfEntry,
                     amount = 500.0,
                     account = "Cash",
-                    category = Category.FOOD_DRINK.title,
+                    category = ExpenseCategory.FOOD_DRINK.title,
                     transactionType = "expense",
                     title = "Lunch snack"
                 )
@@ -69,7 +69,7 @@ class TransactionDaoTest {
                 dateOfEntry = dateOfEntry,
                 amount = 500.0,
                 account = "Cash",
-                category = Category.FOOD_DRINK.title,
+                category = ExpenseCategory.FOOD_DRINK.title,
                 transactionType = "income",
                 title = "Lunch snack"
             )
@@ -194,7 +194,7 @@ class TransactionDaoTest {
                     dateOfEntry = dateOfEntry,
                     amount = 500.0,
                     account = "Cash",
-                    category = Category.FOOD_DRINK.title,
+                    category = ExpenseCategory.FOOD_DRINK.title,
                     transactionType = "expense",
                     title = "Lunch snack"
                 )
@@ -224,7 +224,7 @@ class TransactionDaoTest {
                     dateOfEntry = dateOfEntry,
                     amount = 500.0,
                     account = "Cash",
-                    category = Category.FOOD_DRINK.title,
+                    category = ExpenseCategory.FOOD_DRINK.title,
                     transactionType = "expense",
                     title = "Lunch snack"
                 )
@@ -254,7 +254,7 @@ class TransactionDaoTest {
                     dateOfEntry = dateOfEntry,
                     amount = 500.0,
                     account = "Cash",
-                    category = Category.FOOD_DRINK.title,
+                    category = ExpenseCategory.FOOD_DRINK.title,
                     transactionType = "income",
                     title = "salary"
                 )
@@ -284,7 +284,7 @@ class TransactionDaoTest {
                     dateOfEntry = dateOfEntry,
                     amount = 500.0,
                     account = "Cash",
-                    category = Category.FOOD_DRINK.title,
+                    category = ExpenseCategory.FOOD_DRINK.title,
                     transactionType = "income",
                     title = "salary"
                 )
@@ -314,7 +314,7 @@ class TransactionDaoTest {
                     dateOfEntry = dateOfEntry,
                     amount = 500.0,
                     account = "Cash",
-                    category = Category.FOOD_DRINK.title,
+                    category = ExpenseCategory.FOOD_DRINK.title,
                     transactionType = "income",
                     title = "salary"
                 )

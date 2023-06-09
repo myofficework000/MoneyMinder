@@ -31,8 +31,10 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.business.money_minder.common.Constants
 import com.business.money_minder.domain.model.Transaction
-import com.business.money_minder.presentation.home_screen.Category
+import com.business.money_minder.presentation.home_screen.CategoryItem
+import com.business.money_minder.presentation.home_screen.ExpenseCategory
 import com.business.money_minder.presentation.home_screen.HomeViewModel
+import com.business.money_minder.presentation.home_screen.IncomeCategory
 import com.business.money_minder.presentation.home_screen.amountFormat
 import com.business.money_minder.presentation.ui.theme.BG1ToBG2
 import com.business.money_minder.presentation.ui.theme.GreenAlpha700
@@ -163,9 +165,13 @@ fun TransactionItem(
     }
 }
 
-fun getCategory(title: String): Category {
-    var result: Category = Category.FOOD_DRINK
-    Category.values().forEach {
+fun getCategory(title: String): CategoryItem {
+    var result: CategoryItem = ExpenseCategory.FOOD_DRINK
+    ExpenseCategory.values().forEach {
+        if (it.title == title)
+            result = it
+    }
+    IncomeCategory.values().forEach {
         if (it.title == title)
             result = it
     }
