@@ -26,14 +26,14 @@ import androidx.compose.ui.graphics.nativeCanvas
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.unit.dp
-import com.business.money_minder.presentation.home_screen.ExpenseCategory
+import com.business.money_minder.presentation.home_screen.CategoryItem
 import kotlin.math.atan2
 import kotlin.math.min
 import kotlin.math.roundToInt
 
 @Composable
 fun DonutChart(
-    filteredCategories: MutableList<ExpenseCategory>,
+    filteredCategories: MutableList<CategoryItem>,
     percentProgress: List<Float>
 ) {
     val angleProgress = percentProgress.map {
@@ -130,7 +130,7 @@ fun DonutChart(
 }
 
 fun DrawScope.DrawDonutArc(
-    cat: ExpenseCategory,
+    cat: CategoryItem,
     startAngle: Float,
     sweepAngle: Float,
     size: Size,
