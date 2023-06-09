@@ -37,7 +37,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.business.money_minder.R
+import com.business.money_minder.presentation.home_screen.CategoryItem
 import com.business.money_minder.presentation.home_screen.ExpenseCategory
+import com.business.money_minder.presentation.home_screen.IncomeCategory
 import com.business.money_minder.presentation.home_screen.amountFormat
 import com.business.money_minder.presentation.home_screen.components.ListPlaceholder
 import com.business.money_minder.presentation.insight_screen.components.DonutChart
@@ -59,9 +61,16 @@ fun InsightScreen(insightViewModel: InsightViewModel = hiltViewModel()) {
         it.category
     }
 
-    val filteredCategories = mutableListOf<ExpenseCategory>()
+    val filteredCategories = mutableListOf<CategoryItem>()
     groupedData.forEach { data ->
         ExpenseCategory.values().forEach cat@{
+            if (data.key == it.title) {
+                filteredCategories.add(it)
+                return@cat
+            }
+        }
+
+        IncomeCategory.values().forEach cat@{
             if (data.key == it.title) {
                 filteredCategories.add(it)
                 return@cat
