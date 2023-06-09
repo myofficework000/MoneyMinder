@@ -1,5 +1,6 @@
 package com.business.money_minder.presentation.setting_screen.components
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -57,7 +58,8 @@ fun EraseSetting(modalBottomSheetState: ModalBottomSheetState, scope: CoroutineS
             text = "Erase Data",
             style = MaterialTheme.typography.button,
             modifier = Modifier.weight(2f),
-            textAlign = TextAlign.Start
+            textAlign = TextAlign.Start,
+            color = MaterialTheme.colors.onSurface
         )
 
         CompositionLocalProvider(LocalContentAlpha provides ContentAlpha.high) {

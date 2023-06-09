@@ -55,7 +55,8 @@ fun PrivacySetting() {
             text = "Privacy Settings",
             style = MaterialTheme.typography.button,
             modifier = Modifier.weight(2f),
-            textAlign = TextAlign.Start
+            textAlign = TextAlign.Start,
+            color = MaterialTheme.colors.onSurface
         )
 
         CompositionLocalProvider(LocalContentAlpha provides ContentAlpha.medium) {
