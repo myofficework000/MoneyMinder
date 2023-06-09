@@ -73,7 +73,8 @@ fun LimitSetting(
         CompositionLocalProvider(LocalContentAlpha provides ContentAlpha.medium) {
             Text(
                 text = "$currencyCode " + expenseLimit.toString().amountFormat(),
-                style = MaterialTheme.typography.subtitle2
+                style = MaterialTheme.typography.subtitle2,
+                color = MaterialTheme.colors.onSurface
             )
         }
     }

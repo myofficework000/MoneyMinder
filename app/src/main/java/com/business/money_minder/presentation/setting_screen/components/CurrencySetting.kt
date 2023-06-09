@@ -56,7 +56,8 @@ fun CurrencySetting(currency: String, navController: NavController) {
         CompositionLocalProvider(LocalContentAlpha provides ContentAlpha.medium) {
             Text(
                 text = currency,
-                style = MaterialTheme.typography.subtitle2
+                style = MaterialTheme.typography.subtitle2,
+                color = MaterialTheme.colors.onSurface
             )
 
             Icon(
