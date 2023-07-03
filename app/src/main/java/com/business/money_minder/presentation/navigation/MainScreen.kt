@@ -21,9 +21,9 @@ import androidx.compose.ui.unit.ExperimentalUnitApi
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.business.money_minder.presentation.main.MainViewModel
-import com.google.accompanist.pager.ExperimentalPagerApi
 import com.business.money_minder.presentation.navigation.components.BottomNavBar
 import com.business.money_minder.presentation.navigation.components.provideBottomNavItems
+import com.google.accompanist.pager.ExperimentalPagerApi
 import kotlinx.coroutines.InternalCoroutinesApi
 
 @OptIn(InternalCoroutinesApi::class)

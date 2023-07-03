@@ -10,7 +10,6 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
-import com.google.accompanist.pager.ExperimentalPagerApi
 import com.business.money_minder.presentation.account_screen.AccountDetailScreen
 import com.business.money_minder.presentation.account_screen.AccountScreen
 import com.business.money_minder.presentation.home_screen.HomeScreen
@@ -20,6 +19,7 @@ import com.business.money_minder.presentation.main.MainViewModel
 import com.business.money_minder.presentation.setting_screen.SettingScreen
 import com.business.money_minder.presentation.welcome_screen.CurrencyScreen
 import com.business.money_minder.presentation.welcome_screen.WelcomeScreen
+import com.google.accompanist.pager.ExperimentalPagerApi
 import kotlinx.coroutines.InternalCoroutinesApi
 
 @OptIn(InternalCoroutinesApi::class)

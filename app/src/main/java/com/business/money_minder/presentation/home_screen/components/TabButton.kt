@@ -25,7 +25,6 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.business.money_minder.presentation.home_screen.HomeViewModel
 import com.business.money_minder.presentation.home_screen.TabButton
 import com.business.money_minder.presentation.ui.theme.Peach
-import com.business.money_minder.presentation.ui.theme.RoyalBlue
 import com.business.money_minder.util.spacing
 
 @Composable

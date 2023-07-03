@@ -13,7 +13,6 @@ import androidx.compose.ui.composed
 import androidx.compose.ui.focus.onFocusEvent
 import androidx.compose.ui.platform.LocalFocusManager
 import com.business.money_minder.presentation.home_screen.CategoryItem
-import com.business.money_minder.presentation.home_screen.ExpenseCategory
 import kotlin.reflect.KClass
 
 

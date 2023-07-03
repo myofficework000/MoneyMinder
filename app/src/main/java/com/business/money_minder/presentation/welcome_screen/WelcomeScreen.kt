@@ -12,13 +12,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.business.money_minder.presentation.navigation.Screen
+import com.business.money_minder.presentation.welcome_screen.components.GetStartedButton
+import com.business.money_minder.presentation.welcome_screen.components.PagerScreen
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.HorizontalPagerIndicator
 import com.google.accompanist.pager.rememberPagerState
-import com.business.money_minder.presentation.navigation.Screen
-import com.business.money_minder.presentation.welcome_screen.components.GetStartedButton
-import com.business.money_minder.presentation.welcome_screen.components.PagerScreen
 
 @ExperimentalPagerApi
 @Composable
