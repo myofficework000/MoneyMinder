@@ -1,4 +1,4 @@
-# Money minder - Money tracker app with Compose.
+# Money minder - Money tracker app using Jetpack compose UI and clean architechture
 ![GitHub Cards Preview]
 
 # Money Minder 📊
