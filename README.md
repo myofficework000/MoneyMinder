@@ -1,16 +1,10 @@
-# Money minder - Money tracker app with Compose.
-![GitHub Cards Preview]
+# Money minder - Money tracker app using Jetpack compose UI and clean architechture
 
-# Money Minder 📊
+# Money Minder - Daily Expense tracker
 A Simple Expense Tracker App for you day to day life 📱 built to demonstrate the use of modern android architecture component with MVVM Architecture 🏗. *Made with love ❤️.
 
-<br />
-
-***Try latest Expenso app apk from below 👇***
-
-<br />
-
 ## UI Design 🎨
+WIP
 
 ## Built With 🛠
 - [Kotlin](https://kotlinlang.org/) - First class and official programming language for Android development.
