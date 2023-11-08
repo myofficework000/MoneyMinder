@@ -4,7 +4,7 @@ plugins {
     id("com.google.gms.google-services")
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
-    id("com.google.devtools.ksp") version "1.8.10-1.0.9"
+//    id("com.google.devtools.ksp") version "1.8.10-1.0.9"
 }
 
 android {
@@ -39,6 +39,11 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        compose = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.4.3"
     }
 }
 
@@ -106,7 +111,7 @@ dependencies {
 
     //Room Dependency
     implementation("androidx.room:room-ktx:2.6.0")
-    ksp("androidx.room:room-compiler:2.6.0")
+    kapt("androidx.room:room-compiler:2.6.0")
 
     //Dagger-hilt
     implementation("com.google.dagger:hilt-android:2.45")
