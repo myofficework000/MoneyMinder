@@ -46,8 +46,8 @@ fun AddEntryChooser(
     val scope = rememberCoroutineScope()
     val progress = bottomSheetScaffoldState.bottomSheetState.progress
     val expandRotation by animateFloatAsState(
-        targetValue = -360f * progress,
-        animationSpec = spring(dampingRatio = 0.75f, stiffness = Spring.StiffnessLow)
+        targetValue = (-360f * progress.fraction),
+        animationSpec = spring(dampingRatio = 0.75f, stiffness = Spring.StiffnessLow), label = ""
     )
 
     Row(

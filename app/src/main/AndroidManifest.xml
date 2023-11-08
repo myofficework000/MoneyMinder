@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.business.money_minder">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <application
-        android:name=".di.MoneyMinderApplication"
+        android:name="com.business.money_minder.di.MoneyMinderApplication"
         android:allowBackup="true"
         android:icon="@mipmap/app_icon"
         android:label="@string/app_name"

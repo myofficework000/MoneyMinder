@@ -8,7 +8,7 @@ import com.business.money_minder.data.local.entity.AccountDto
 import com.business.money_minder.data.local.entity.TransactionDto
 
 @TypeConverters(value = [DateConverter::class])
-@Database(entities = [TransactionDto::class, AccountDto::class], exportSchema = true, version = 1)
+@Database(entities = [TransactionDto::class, AccountDto::class], exportSchema = false, version = 1)
 abstract class TransactionDatabase: RoomDatabase() {
     abstract val transactionDao: TransactionDao
 }
