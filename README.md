@@ -1,4 +1,4 @@
-# Money minder - Money tracker app using Jetpack compose UI and clean architechture
+# Money minder - Money tracker app
 
 # Money Minder - Daily Expense tracker
 A Simple Expense Tracker App for you day to day life 📱 built to demonstrate the use of modern android architecture component with MVVM Architecture 🏗. *Made with love ❤️.
