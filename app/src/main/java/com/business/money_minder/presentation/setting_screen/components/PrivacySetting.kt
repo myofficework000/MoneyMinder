@@ -1,5 +1,7 @@
 package com.business.money_minder.presentation.setting_screen.components
 
+import android.content.Intent
+import android.net.Uri
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -16,18 +18,23 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.business.money_minder.R
 import com.business.money_minder.util.spacing
 
+
 @Composable
 fun PrivacySetting() {
+    val context = LocalContext.current
+
     TextButton(
         enabled = false, // There's nothing inside for now...
         onClick = {
-
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(URL))
+            context.startActivity(intent)
         },
         modifier = Modifier
             .fillMaxSize()
@@ -64,3 +71,5 @@ fun PrivacySetting() {
         }
     }
 }
+
+const val URL = "https://docs.google.com/document/d/e/2PACX-1vRBZowlGCgCGhBl-utwSG61LkrHFs4Kp7CixIVr-mPoMpsCQlzRsYmNGoKm6TKbRe4VXabNjzYXIo8p/pub"

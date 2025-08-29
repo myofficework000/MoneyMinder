@@ -1,7 +1,9 @@
 package com.business.money_minder.presentation.welcome_screen
 
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.LocalIndication
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -144,7 +146,10 @@ fun CurrencyScreen(
                             Row(
                                 verticalAlignment = Alignment.CenterVertically,
                                 modifier = Modifier
-                                    .clickable {
+                                    .clickable(
+                                        interactionSource = remember { MutableInteractionSource() },
+                                        indication = LocalIndication.current
+                                    ) {
                                         selectedCountry = if (selectedCountry != currency) {
                                             coroutineScope.launch { bottomSheetScaffoldState.bottomSheetState.expand() }
                                             currency

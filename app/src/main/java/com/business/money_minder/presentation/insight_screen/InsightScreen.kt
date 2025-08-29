@@ -1,7 +1,9 @@
 package com.business.money_minder.presentation.insight_screen
 
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.LocalIndication
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -114,7 +116,10 @@ fun InsightScreen(insightViewModel: InsightViewModel = hiltViewModel()) {
         ) {
             Row(
                 modifier = Modifier
-                    .clickable {
+                    .clickable(
+                        interactionSource = remember { MutableInteractionSource() },
+                        indication = LocalIndication.current
+                    ) {
                         expandedState = !expandedState
                     }
                     .padding(spacing.medium),

@@ -5,8 +5,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.ButtonDefaults
-import androidx.compose.material.ContentAlpha
-import androidx.compose.material.LocalContentAlpha
+import androidx.compose.material.LocalContentColor
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.TextButton
@@ -47,14 +46,17 @@ fun VersionSetting() {
             textAlign = TextAlign.Start
         )
 
-        CompositionLocalProvider(LocalContentAlpha provides ContentAlpha.medium) {
+        CompositionLocalProvider(LocalContentColor provides MaterialTheme.colors.primary)
+        {
             val context = LocalContext.current
             val packageManager =
                 context.packageManager.getPackageInfo("com.business.money_minder", 0)
-            Text(
-                text = packageManager.versionName,
-                style = MaterialTheme.typography.subtitle2
-            )
+            packageManager.versionName?.let {
+                Text(
+                    text = it,
+                    style = MaterialTheme.typography.subtitle2
+                )
+            }
         }
     }
 }
