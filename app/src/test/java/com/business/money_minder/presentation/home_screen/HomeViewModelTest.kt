@@ -123,7 +123,8 @@ class HomeViewModelTest {
     @Test
     fun `when homeviewmodel is created, retrieve all transactions`() = runBlocking {
         homeViewModel.monthlyTransaction.test {
-            val allTrx = awaitItem()
+            val initialValue = awaitItem()
+            val allTrx = if (initialValue.isEmpty()) awaitItem() else initialValue
             assertThat(allTrx.size).isGreaterThan(0)
             cancelAndConsumeRemainingEvents()
         }

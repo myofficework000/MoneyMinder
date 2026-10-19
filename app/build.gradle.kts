@@ -1,3 +1,12 @@
+import java.util.Properties
+
+val keystoreProperties = Properties()
+val keystorePropertiesFile = rootProject.file("keystore.properties")
+
+if (keystorePropertiesFile.exists()) {
+    keystorePropertiesFile.inputStream().use(keystoreProperties::load)
+}
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -15,12 +24,23 @@ android {
         applicationId = "com.business.money_minder"
         minSdk = 24
         targetSdk = 36
-        versionCode = 3
-        versionName = "2.0.0"
+        versionCode = 4
+        versionName = "2.0.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary = true
+        }
+    }
+
+    signingConfigs {
+        create("release") {
+            if (keystorePropertiesFile.exists()) {
+                storeFile = rootProject.file(keystoreProperties.getProperty("storeFile"))
+                storePassword = keystoreProperties.getProperty("storePassword")
+                keyAlias = keystoreProperties.getProperty("keyAlias")
+                keyPassword = keystoreProperties.getProperty("keyPassword")
+            }
         }
     }
 
@@ -32,6 +52,9 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            if (keystorePropertiesFile.exists()) {
+                signingConfig = signingConfigs.getByName("release")
+            }
         }
     }
     compileOptions {
@@ -76,6 +99,7 @@ dependencies {
     testImplementation("androidx.arch.core:core-testing:2.2.0")
     testImplementation("com.google.truth:truth:1.1.3")
     testImplementation("app.cash.turbine:turbine:1.0.0")
+    testImplementation("org.mockito.kotlin:mockito-kotlin:5.4.0")
 
     androidTestImplementation("com.google.truth:truth:1.1.3")
     androidTestImplementation("app.cash.turbine:turbine:1.0.0")
