@@ -24,8 +24,8 @@ android {
         applicationId = "com.business.money_minder"
         minSdk = 24
         targetSdk = 36
-        versionCode = 4
-        versionName = "2.0.1"
+        versionCode = 5
+        versionName = "2.0.2"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -70,6 +70,7 @@ android {
         compose = true
     }
     packaging {
+        jniLibs.useLegacyPackaging = false
         resources {
             excludes += "META-INF/native-image/io.sentry/sentry/native-image.properties"
         }
@@ -119,7 +120,7 @@ dependencies {
 
     implementation("androidx.work:work-runtime-ktx:2.8.1") // latest stable
 
-    implementation("io.sentry:sentry-android:5.7.3")
+    implementation("io.sentry:sentry-android:8.54.0")
 
     implementation("com.airbnb.android:lottie-compose:6.0.1")
 

@@ -6,6 +6,7 @@ import com.business.money_minder.domain.repository.TransactionRepository
 import com.business.money_minder.presentation.home_screen.Account
 import com.business.money_minder.presentation.home_screen.ExpenseCategory
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.flow
 import java.util.Calendar
 import java.util.Date
@@ -37,6 +38,10 @@ class FakeTransactionRepository : TransactionRepository {
         AccountDto(2, Account.CARD.title, 5.0, 10.0, 5.0),
         AccountDto(3, Account.BANK.title, 5.0, 10.0, 5.0)
     )
+
+    val dailyExpenses = MutableStateFlow(trxList)
+    val weeklyExpenses = MutableStateFlow(trxList)
+    val monthlyExpenses = MutableStateFlow(trxList)
 
     override suspend fun insertTransaction(dailyExpense: TransactionDto) {
         return
@@ -81,21 +86,15 @@ class FakeTransactionRepository : TransactionRepository {
     }
 
     override fun getCurrentDayExpTransaction(): Flow<List<TransactionDto>> {
-        return flow {
-            emit(trxList)
-        }
+        return dailyExpenses
     }
 
     override fun getWeeklyExpTransaction(): Flow<List<TransactionDto>> {
-        return flow {
-            emit(trxList)
-        }
+        return weeklyExpenses
     }
 
     override fun getMonthlyExpTransaction(): Flow<List<TransactionDto>> {
-        return flow {
-            emit(trxList)
-        }
+        return monthlyExpenses
     }
 
     override fun get3DayTransaction(transactionType: String): Flow<List<TransactionDto>> {

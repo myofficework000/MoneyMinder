@@ -43,11 +43,13 @@ import com.business.money_minder.presentation.ui.theme.vehicleBg
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.Dispatchers.Main
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.text.DecimalFormat
@@ -57,6 +59,7 @@ import javax.inject.Inject
 
 
 @HiltViewModel
+@OptIn(ExperimentalCoroutinesApi::class)
 class HomeViewModel @Inject constructor(
     private val getDateUseCase: GetDateUseCase,
     private val getFormattedDateUseCase: GetFormattedDateUseCase,
@@ -77,7 +80,6 @@ class HomeViewModel @Inject constructor(
 
     private var decimal: String = String()
     private var isDecimal = MutableStateFlow(false)
-    private var duration = MutableStateFlow(0)
 
     var tabButton = MutableStateFlow(TabButton.TODAY)
         private set
@@ -137,39 +139,23 @@ class HomeViewModel @Inject constructor(
         currencyFormat()
 
         viewModelScope.launch(IO) {
-            getLimitDurationUseCase().collect { pref ->
-                duration.value = pref
-            }
-        }
-
-        viewModelScope.launch(IO) {
             getLimitKeyUseCase().collectLatest { pref ->
                 limitKey.value = pref
             }
         }
 
         viewModelScope.launch(IO) {
-            when (duration.value) {
-                0 -> {
-                    getCurrentDayExpTransactionUseCase().collect { result ->
-                        val trx = result.map { trans -> trans.toTransaction() }
-                        currentExpenseAmount.value = calculateTransaction(trx.map { it.amount })
-                    }
+            getLimitDurationUseCase().flatMapLatest { duration ->
+                when (duration) {
+                    0 -> getCurrentDayExpTransactionUseCase()
+                    1 -> getWeeklyExpTransactionUseCase()
+                    else -> getMonthlyExpTransactionUse()
                 }
-                1 -> {
-                    getWeeklyExpTransactionUseCase().collect { result ->
-                        val trx = result.map { trans -> trans.toTransaction() }
-                        currentExpenseAmount.value = calculateTransaction(trx.map { it.amount })
-                    }
-                }
-                else -> {
-                    getMonthlyExpTransactionUse().collect { result ->
-                        val trx = result.map { trans -> trans.toTransaction() }
-                        currentExpenseAmount.value = calculateTransaction(trx.map { it.amount })
-                    }
-                }
+            }.collect { transactions ->
+                currentExpenseAmount.value = calculateTransaction(
+                    transactions.map { it.toTransaction().amount }
+                )
             }
-
         }
 
         viewModelScope.launch(IO) {

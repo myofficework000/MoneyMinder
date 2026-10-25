@@ -23,7 +23,10 @@ import com.business.money_minder.domain.usecase.write_database.InsertAccountsUse
 import com.business.money_minder.domain.usecase.write_database.InsertNewTransactionUseCase
 import com.business.money_minder.domain.usecase.write_database.MockitoHelper.anyObject
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withTimeout
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -38,6 +41,7 @@ class HomeViewModelTest {
     private lateinit var homeViewModel: HomeViewModel
     private lateinit var transactionRepository: TransactionRepository
     private lateinit var datastoreRepository: DatastoreRepository
+    private val limitDuration = MutableStateFlow(0)
 
     private lateinit var getDateUseCase: GetDateUseCase
     private lateinit var getFormattedDateUseCase: GetFormattedDateUseCase
@@ -89,6 +93,8 @@ class HomeViewModelTest {
                     emit("NGN")
                 }
             )
+            `when`(datastoreRepository.readLimitDurationFromDataStore()).thenReturn(limitDuration)
+            `when`(datastoreRepository.readLimitKeyFromDataStore()).thenReturn(MutableStateFlow(false))
         }
 
         homeViewModel = HomeViewModel(
@@ -111,10 +117,34 @@ class HomeViewModelTest {
     }
 
     @Test
+    fun `expense total follows the selected limit period and its updates`() = runBlocking {
+        val repository = transactionRepository as FakeTransactionRepository
+        val transaction = repository.dailyExpenses.value.first()
+        repository.dailyExpenses.value = listOf(transaction.copy(amount = 10.0))
+        repository.weeklyExpenses.value = listOf(transaction.copy(amount = 20.0))
+        repository.monthlyExpenses.value = listOf(transaction.copy(amount = 30.0))
+
+        suspend fun awaitTotal(expected: Double) = withTimeout(5_000) {
+            homeViewModel.currentExpenseAmount.first { it == expected }
+        }
+
+        awaitTotal(10.0)
+        limitDuration.value = 1
+        awaitTotal(20.0)
+        repository.dailyExpenses.value = listOf(transaction.copy(amount = 99.0))
+        repository.weeklyExpenses.value = listOf(transaction.copy(amount = 25.0))
+        awaitTotal(25.0)
+        limitDuration.value = 2
+        awaitTotal(30.0)
+        Unit
+    }
+
+    @Test
     fun `when homeviewmodel is created, retrieve daily transactions`() =
         runBlocking {
             homeViewModel.dailyTransaction.test {
-                val dailyTrx = awaitItem()
+                val initialValue = awaitItem()
+                val dailyTrx = if (initialValue.isEmpty()) awaitItem() else initialValue
                 assertThat(dailyTrx.size).isGreaterThan(0)
                 cancelAndConsumeRemainingEvents()
             }
@@ -133,7 +163,8 @@ class HomeViewModelTest {
     @Test
     fun `when homeviewmodel is created, retrieve selected currency`() = runBlocking {
         homeViewModel.selectedCurrencyCode.test {
-            val currency = awaitItem()
+            val initialValue = awaitItem()
+            val currency = if (initialValue.isEmpty()) awaitItem() else initialValue
             assertThat(currency).isNotEmpty()
             cancelAndConsumeRemainingEvents()
 
@@ -143,7 +174,8 @@ class HomeViewModelTest {
     @Test
     fun `when homeviewmodel is created, retrieve all income info`() = runBlocking {
         homeViewModel.totalIncome.test {
-            val income = awaitItem()
+            val initialValue = awaitItem()
+            val income = if (initialValue == 0.0) awaitItem() else initialValue
             assertThat(income).isEqualTo(30.0)
         }
     }
@@ -151,7 +183,8 @@ class HomeViewModelTest {
     @Test
     fun `when homeviewmodel is created, retrieve all expense info`() = runBlocking {
         homeViewModel.totalExpense.test {
-            val expense = awaitItem()
+            val initialValue = awaitItem()
+            val expense = if (initialValue == 0.0) awaitItem() else initialValue
             assertThat(expense).isEqualTo(15.0)
         }
     }
